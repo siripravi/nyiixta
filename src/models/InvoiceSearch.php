@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;

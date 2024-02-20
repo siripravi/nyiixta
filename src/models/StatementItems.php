@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 
 /**
@@ -16,7 +16,7 @@ use Yii;
  * @property int $status
  * @property int $sequence
  */
-class StatementItems extends \yii\db\ActiveRecord
+class StatementItems extends MyActiveRecord
 {
     const ITEM_STATUS_OLD = 0;
     const ITEM_STATUS_NEW = 1;

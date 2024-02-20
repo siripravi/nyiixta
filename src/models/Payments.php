@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 
 /**
@@ -18,7 +18,7 @@ use Yii;
  * @property Invoice $iNVOICE
  * @property Mode $mODE
  */
-class Payments extends \yii\db\ActiveRecord
+class Payments extends MyActiveRecord
 {
     /**
      * @inheritdoc

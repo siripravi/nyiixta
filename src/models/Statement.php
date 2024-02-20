@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 
 /**
@@ -23,7 +23,7 @@ use Yii;
  *
  * @property Movement[] $movements
  */
-class Statement extends \yii\db\ActiveRecord
+class Statement extends MyActiveRecord
 {
     public $created_at;
 

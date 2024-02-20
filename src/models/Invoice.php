@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 
 /**
@@ -29,7 +29,7 @@ use Yii;
  * @property InvoiceItems[] $invoiceItems
  * @property Payments[] $payments
  */
-class Invoice extends \yii\db\ActiveRecord
+class Invoice extends MyActiveRecord
 {
     public $lastNew = 0;
     public $itemCount;

@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 
 /**
@@ -19,7 +19,7 @@ use Yii;
  * @property string $ship_email1
  * @property string $ship_details
  */
-class Venue extends \yii\db\ActiveRecord
+class Venue extends MyActiveRecord
 {
     public $full_address;
     /**

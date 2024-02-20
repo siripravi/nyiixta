@@ -11,7 +11,7 @@
  */
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
@@ -33,7 +33,7 @@ use yii\web\IdentityInterface;
  * @property string $created_at
  * @property string $updated_at
  */
-class User extends \yii\db\ActiveRecord implements IdentityInterface
+class User extends MyActiveRecord implements IdentityInterface
 {
 	/**
 	 * @var

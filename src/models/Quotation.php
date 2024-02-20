@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use siripravi\nyiixta\models\Statement;
 use Yii;
 
@@ -13,7 +13,7 @@ use Yii;
  * @property integer $st_type
  * @property string $quotation_id
  */
-class Quotation extends  \yii\db\ActiveRecord
+class Quotation extends  MyActiveRecord
 {
 
     /*public $ship_date;

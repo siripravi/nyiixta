@@ -1,7 +1,7 @@
 <?php
 
 namespace siripravi\nyiixta\models;
-
+use siripravi\nyiixta\models\MyActiveRecord;
 use Yii;
 
 /**
@@ -23,7 +23,7 @@ use Yii;
  *
  * @property Invoice[] $invoices
  */
-class Customer extends \yii\db\ActiveRecord
+class Customer extends MyActiveRecord
 {
 	public $full_address;
 	public $contact;
