@@ -42,13 +42,14 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
+        return "DASHBOARD INDEX";
+       /* $dataProvider = new ActiveDataProvider([
             'query' => Slider::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-        ]);
+        ]);*/
     }
 
     /**
