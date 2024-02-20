@@ -24,8 +24,7 @@ use app\models\Venue;
 
       <div class="row">
         <div class="col-xl-12">
-          <div id="hcard-<?php echo $statement->customer->first_name . '-' . $statement->customer->last_name; ?>"
-            class="vcard">
+          <div id="hcard-<?php echo $statement->customer->first_name . '-' . $statement->customer->last_name; ?>" class="vcard">
 
             <div class="org">
               <?php echo $statement->customer->first_name . ' ' . $statement->customer->last_name; ?>
@@ -101,13 +100,13 @@ use app\models\Venue;
 
             </tr>
 
-            <?php
+          <?php
             $start += 1;
           }
           ?>
           <tfoot>
 
-            <?php if ($gtot): ?>
+            <?php if ($gtot) : ?>
               <tr>
                 <td rowspan="3" colspan="3"></td>
                 <th>Total</th>
@@ -127,7 +126,7 @@ use app\models\Venue;
                   <?php echo Yii::$app->formatter->asCurrency($grandtotal - $invoice->paymentsTotal, 'USD'); ?>
                 </td>
               </tr>
-            <?php else: ?>
+            <?php else : ?>
               <tr>
                 <td rowspan="3" colspan="3"></td>
                 <th>Total</th>
@@ -186,7 +185,7 @@ use app\models\Venue;
         </div><!-- e: vcard -->
       </div><!-- e invoice-to -->
       <div class="invoice-status">
-        <?php if ($id === 'invoice'): ?>
+        <?php if ($id === 'invoice') : ?>
           <h3>Invoice Status</h3>
           <strong>Invoice is <em>Unpaid</em></strong>
         <?php endif; ?>
@@ -194,8 +193,7 @@ use app\models\Venue;
       <hr>
       <div class="row">
         <div class="col-xl-8" style="margin-left:60px">
-          <p class="float-end"
-            style="font-size: 30px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
+          <p class="float-end" style="font-size: 30px; color: red; font-weight: 400;font-family: Arial, Helvetica, sans-serif;">
             Total:
             <span><i class="fas fa-dollar-sign"></i> 6350,00</span>
           </p>

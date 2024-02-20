@@ -1,4 +1,5 @@
 <?php
+
 use yii\bootstrap5\Accordion;
 use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
@@ -29,41 +30,41 @@ $pk = $model->primaryKey;
 ?>
 <div class="invoice-wrapper">
     <div class="row">
-          <div class="col-12">
-        <?php if (!empty($model->invoice_id)): ?>
+        <div class="col-12">
+            <?php if (!empty($model->invoice_id)) : ?>
 
                 <!--<form method=class="form-horizontal" ng2-submit="saveItems(<= $model->invoice_id; ?>)" ng2:controller="InvoiceController"> -->
-                <?= $this->render('_invheader', ['model' => $model, 'stmt' => $stmt, 'customer' => $stmt->customer, 'delivery'=>$stmt->venue]); ?>
-            <?php
-            app\components\AngularHelper::begin(
-                [
-                    'appName' => 'invApp',
-                    'appFolder' => dirname(__FILE__) . '/../../' . 'libs/js/app4',
-                    'appScripts' => ['accounting.min.js', 'inv.js'],
-                    'commonAppScripts' => [
-                        dirname(__FILE__) . '/../../' . 'libs/js/common/config_httpProvider.js',
-                        dirname(__FILE__) . '/../../' . 'libs/js/common/config_locationProvider.js',
-                    ],
-                    'requiredModulesScriptNames' => array('route', 'sanitize'),
-                    'concatenateAppScripts' => false,
-                    'debug' => false,
-                ]
-            );
-            ?>
-            <div ng-app="invApp" ng-controller="InvCtrl">
-             
+                <?= $this->render('_invheader', ['model' => $model, 'stmt' => $stmt, 'customer' => $stmt->customer, 'delivery' => $stmt->venue]); ?>
+                <?php
+                app\components\AngularHelper::begin(
+                    [
+                        'appName' => 'invApp',
+                        'appFolder' => dirname(__FILE__) . '/../../' . 'libs/js/app4',
+                        'appScripts' => ['accounting.min.js', 'inv.js'],
+                        'commonAppScripts' => [
+                            dirname(__FILE__) . '/../../' . 'libs/js/common/config_httpProvider.js',
+                            dirname(__FILE__) . '/../../' . 'libs/js/common/config_locationProvider.js',
+                        ],
+                        'requiredModulesScriptNames' => array('route', 'sanitize'),
+                        'concatenateAppScripts' => false,
+                        'debug' => false,
+                    ]
+                );
+                ?>
+                <div ng-app="invApp" ng-controller="InvCtrl">
+
                     <?= $this->render('_lineitems', ['model' => $model, 'stmt' => $stmt, 'items' => $model->lineItems, 'angular' => $angular]); ?>
                     <!--?= $this->render('_payitems', ['model' => $model, 'items' => $model->payments, 'pay' => new Payments]);?-->
 
-              
-            </div>
-            <?php app\components\AngularHelper::end(); ?>
+
+                </div>
+                <?php app\components\AngularHelper::end(); ?>
         </div>
-<?php else: ?>
-    <p>
-        <?= Html::a('Create Invoice', ['create'], ['data-toggle' => 'modal', 'data-target' => '#invModal', 'class' => 'btn btn-success']) ?>
-    </p>
-    <!--?php
+    <?php else : ?>
+        <p>
+            <?= Html::a('Create Invoice', ['create'], ['data-toggle' => 'modal', 'data-target' => '#invModal', 'class' => 'btn btn-success']) ?>
+        </p>
+        <!--?php
     Modal::begin([
         'title' => '<h2>Create Invoice</h2>',
         // 'toggleButton' => ['label' => 'Create New'],
@@ -77,12 +78,12 @@ $pk = $model->primaryKey;
     ]);
     ?-->
 
-    <?php
-    //Modal::end();
-    ?>
+        <?php
+                //Modal::end();
+        ?>
 
-<?php endif; ?>
-</div>
+    <?php endif; ?>
+    </div>
 </div> <!--container fluid-->
 <?php
 Modal::begin([

@@ -1,4 +1,5 @@
 <?php
+
 use yii\bootstrap\Collapse;
 
 /**
@@ -21,16 +22,13 @@ echo 'Helloo world';
 	</h1>
 	<span style="margin-left: 10px;" class="label label-default">Not Viewed</span>
 	<div class="pull-right">
-		<a href="/web/index.php?r=invoice/pdf&id=<?= $model->INVOICE_ID ?>&preview" target="_blank" id="btn-pdf-invoice"
-			class="btn btn-default"><i class="fa fa-print"></i> PDF</a>
+		<a href="/web/index.php?r=invoice/pdf&id=<?= $model->INVOICE_ID ?>&preview" target="_blank" id="btn-pdf-invoice" class="btn btn-default"><i class="fa fa-print"></i> PDF</a>
 		<div class="btn-group">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 				Other <span class="caret"></span>
 			</button>
 			<ul class="dropdown-menu" role="menu">
-				<li><a href="javascript:void(0)" id="btn-enter-payment" class="enter-payment" data-invoice-id="3"
-						data-invoice-balance="0.00" data-redirect-to="http://demo.fusioninvoice.com/invoices/3/edit"><i
-							class="fa fa-credit-card"></i> Enter Payment</a></li>
+				<li><a href="javascript:void(0)" id="btn-enter-payment" class="enter-payment" data-invoice-id="3" data-invoice-balance="0.00" data-redirect-to="http://demo.fusioninvoice.com/invoices/3/edit"><i class="fa fa-credit-card"></i> Enter Payment</a></li>
 				<li><a href="javascript:void(0)" id="btn-copy-invoice"><i class="fa fa-copy"></i> Copy Invoice</a></li>
 				<li><a href="#" target="_blank"><i class="fa fa-globe"></i> Public</a></li>
 			</ul>

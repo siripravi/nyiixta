@@ -1,4 +1,5 @@
 <?php
+
 use kartik\editable\Editable;
 use yii\helpers\Url;
 
@@ -65,7 +66,8 @@ use yii\helpers\Html;
 				<div class="object-form">
 					<div id="custContent">
 						<?php
-						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); ?>
+						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); 
+						?>
 						<?= $this->render('_editcust', ['customer' => $customer, 'stmt' => $stmt]);
 						//\yii\widgets\Pjax::end();
 						?>
@@ -76,7 +78,8 @@ use yii\helpers\Html;
 				<div class="object-form">
 					<div id="delvContent">
 						<?php
-						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); ?>
+						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); 
+						?>
 						<?= $this->render('_editdelv', ['delivery' => $delivery, 'stmt' => $stmt]);
 						//\yii\widgets\Pjax::end();
 						?>

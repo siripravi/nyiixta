@@ -1,4 +1,5 @@
 <?php
+
 namespace siripravi\nyiixta\models;
 
 use siripravi\nyiixta\models\Statement;
@@ -50,9 +51,9 @@ class Quotation extends  \yii\db\ActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return  [
-            [['quotation_id'], 'required'],           
+            [['quotation_id'], 'required'],
             [['quotation_id'], 'string', 'max' => 20],
-            [['st_id', 'st_type', 'quotation_id','from_date', 'to_date','customer_name', 'ship_name','ship_date'], 'safe', 'on' => 'search']
+            [['st_id', 'st_type', 'quotation_id', 'from_date', 'to_date', 'customer_name', 'ship_name', 'ship_date'], 'safe', 'on' => 'search']
         ];
     }
 
@@ -107,7 +108,7 @@ class Quotation extends  \yii\db\ActiveRecord
     {
         return ($this->st_type == Statement::TYPE_QUOTATION) ? 'QUOTE' : 'INVOICE';
     }
-   
+
 
     public function search()
     {
@@ -165,18 +166,20 @@ class Quotation extends  \yii\db\ActiveRecord
         //$criteria->compare('invoice_id',$this->invoice->invoice_id);
 
 
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-            'sort' => array(
-                'defaultOrder' => 'ship_date ASC',
-                // 'multisort'=>true, //maybe your solution!
-                // 'attributes'=>array(
-                //    'field_1','field_2', 'field_3','field_4','field_5'
-            ),
-            'pagination' => array(
-                'pageSize' => 50,
+        return new CActiveDataProvider(
+            $this,
+            array(
+                'criteria' => $criteria,
+                'sort' => array(
+                    'defaultOrder' => 'ship_date ASC',
+                    // 'multisort'=>true, //maybe your solution!
+                    // 'attributes'=>array(
+                    //    'field_1','field_2', 'field_3','field_4','field_5'
+                ),
+                'pagination' => array(
+                    'pageSize' => 50,
+                )
             )
-        )
         );
     }
 
@@ -194,16 +197,15 @@ class Quotation extends  \yii\db\ActiveRecord
 
     public function beforeSave($insert)
     {
-        if (parent::beforeSave($insert)) {           
+        if (parent::beforeSave($insert)) {
             if ($this->isNewRecord) {
                 $this->cuser_id = Yii::app()->user->id;
                 $this->create_time = $this->update_time = date('Y-m-d H:i:s');
                 $this->cuser_id = $this->uuser_id = Yii::app()->user->id;
             } else {
-                $this->update_time = date('Y-m-d H:i:s');
-                ;
+                $this->update_time = date('Y-m-d H:i:s');;
                 $this->uuser_id = Yii::app()->user->id;
-            }            
+            }
             return true;
         } else
             return false;
@@ -236,8 +238,6 @@ class Quotation extends  \yii\db\ActiveRecord
                     $item->st_type = Statement::TYPE_INVOICE;
                     $ret = $item->update();
                 }
-
-
             }
             $ret ? $transaction->commit() : '';
         } catch (Exception $e) {

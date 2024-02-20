@@ -37,7 +37,8 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'label' => 'New'
                                 ]) ?-->
 
-                    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+                    ?>
 
                     <p>
 
@@ -77,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             // 'SHIP_DETAILS',
                             // 'CLOSED',
                             // 'NOTES',
-                    
+
                             ['class' => 'yii\grid\ActionColumn'],
                         ],
                     ]); ?>

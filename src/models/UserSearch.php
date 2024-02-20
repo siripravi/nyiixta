@@ -71,11 +71,11 @@ class UserSearch extends User
 		]);
 
 		$query->andFilterWhere(['like', 'first_name', $this->first_name])
-		      ->andFilterWhere(['like', 'last_name', $this->last_name])
-		      ->andFilterWhere(['like', 'email', $this->email])
-		      ->andFilterWhere(['like', 'password', $this->password])
-		      ->andFilterWhere(['like', 'created_at', $this->created_at])
-		      ->andFilterWhere(['=', 'status', $this->status]);
+			->andFilterWhere(['like', 'last_name', $this->last_name])
+			->andFilterWhere(['like', 'email', $this->email])
+			->andFilterWhere(['like', 'password', $this->password])
+			->andFilterWhere(['like', 'created_at', $this->created_at])
+			->andFilterWhere(['=', 'status', $this->status]);
 		return $dataProvider;
 	}
 }

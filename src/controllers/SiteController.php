@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * @package    Material Dashboard Yii2
@@ -10,19 +11,21 @@
  */
 
 namespace siripravi\nyiixta\controllers;
+
 use  yii;
 use siripravi\nyiixta\models\UserForgotForm;
 use siripravi\nyiixta\models\UserLoginForm;
 use siripravi\nyiixta\models\ContactForm;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+
 /**
  * Class SiteController
  * @package siripravi\nyiixta\controllers
  */
 class SiteController extends \yii\web\Controller
 {
-	//public $layout = 'admin';
+    //public $layout = 'admin';
 
     /**
      * @inheritdoc
@@ -33,7 +36,7 @@ class SiteController extends \yii\web\Controller
         unset($behaviors['access']);
         return $behaviors;
     }
-  /*  public function behaviors()
+    /*  public function behaviors()
     {
         return [
             'access' => [
@@ -67,16 +70,16 @@ class SiteController extends \yii\web\Controller
         ];
     }
 
-	/**
-	 * @return string|\yii\web\Response
-	 */
+    /**
+     * @return string|\yii\web\Response
+     */
     public function actionIndex()
     {
-	   // $this->layout = '@app/views/layouts/admin';
+        // $this->layout = '@app/views/layouts/admin';
 
         $model = new UserLoginForm();
         $model->email = 'hello@coderseden.com';
-	    $model->password = 'admin123';
+        $model->password = 'admin123';
 
         if (\Yii::$app->user->isGuest == false && \Yii::$app->user->identity->email != false) {
             return $this->redirect(['dashboard/index']);
@@ -87,7 +90,7 @@ class SiteController extends \yii\web\Controller
             return $this->redirect(['dashboard/index']);
         }
 
-	    \Yii::$app->view->title = \Yii::t('app', 'Admin Login');
+        \Yii::$app->view->title = \Yii::t('app', 'Admin Login');
 
         /* render the view */
         return $this->render('index', [
@@ -95,13 +98,13 @@ class SiteController extends \yii\web\Controller
         ]);
     }
 
-	/**
-	 * @return string|\yii\web\Response
-	 * @throws \yii\base\Exception
-	 */
+    /**
+     * @return string|\yii\web\Response
+     * @throws \yii\base\Exception
+     */
     public function actionForgot()
     {
-	    $this->layout = '@app/views/layouts/admin';
+        $this->layout = '@app/views/layouts/admin';
 
         $model = new UserForgotForm();
 
@@ -111,7 +114,7 @@ class SiteController extends \yii\web\Controller
         }
 
         /* view params */
-	    \Yii::$app->view->title =  \Yii::t('app', 'Forgot password');
+        \Yii::$app->view->title =  \Yii::t('app', 'Forgot password');
 
         /* render the view */
         return $this->render('forgot', [
@@ -119,27 +122,27 @@ class SiteController extends \yii\web\Controller
         ]);
     }
 
-	/**
-	 * @return \yii\web\Response
-	 */
+    /**
+     * @return \yii\web\Response
+     */
     public function actionLogout()
     {    //echo \Yii::$app->user->identity->user_id; die;
         \Yii::$app->getUser()->logout();
         return $this->redirect(['/']);
     }
 
-	/**
-	 * @return void|\yii\web\Response
-	 */
+    /**
+     * @return void|\yii\web\Response
+     */
     public function actionProfile()
     {
-	    if ( \Yii::$app->getUser()->isGuest ) {
-		    return \Yii::$app->getResponse()->redirect( \yii\helpers\Url::to(['/']) )->send();
-	    }
+        if (\Yii::$app->getUser()->isGuest) {
+            return \Yii::$app->getResponse()->redirect(\yii\helpers\Url::to(['/']))->send();
+        }
 
-	    $currentUser = \Yii::$app->user->identity;
+        $currentUser = \Yii::$app->user->identity;
 
-	    return $this->redirect(['/users/update', 'id' => $currentUser->user_id]);
+        return $this->redirect(['/users/update', 'id' => $currentUser->user_id]);
     }
 
     public function actionLogin()

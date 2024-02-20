@@ -1,4 +1,5 @@
 <?php
+
 use yii\bootstrap5\Accordion;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -31,11 +32,11 @@ use yii\web\JsExpression;
 //$pk = $model->primaryKey;
 ?>
 <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
-  <div class="card-header">Header</div>
-  <div class="card-body">
-    <h5 class="card-title">Dark card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
+    <div class="card-header">Header</div>
+    <div class="card-body">
+        <h5 class="card-title">Dark card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
 </div>
 <section class="section">
     <div class="card border-info mb-3">
@@ -99,7 +100,7 @@ use yii\web\JsExpression;
                             'options' => [
                                 'id' => 'cust-id',
                                 //'class' => 'card bg-success text-white',
-                        
+
                             ],
                             'pluginOptions' => [
                                 //'dropdownParent' => '#hello-popover', // set this to "#<EDITABLE_ID>-popover" to ensure select2 renders properly within the popover
@@ -111,7 +112,7 @@ use yii\web\JsExpression;
                                                 }',
                             ],
                             // 'contentOptions' => ['style' => 'width:350px'],
-                        
+
                         ]); ?>
                         <span class="bmd-help">
                             <?= Html::activeHint($stmt, 'customer_no'); ?>
@@ -119,7 +120,7 @@ use yii\web\JsExpression;
                     </div>
 
                     <div class="form-group">
-                        
+
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -128,7 +129,7 @@ use yii\web\JsExpression;
                             <?= Html::activeLabel($stmt, 'ship_date'); ?>
                         </label>
                         <?php
-                       
+
                         echo DatePicker::widget([
                             'model' => $stmt,
                             'attribute' => 'ship_date',
@@ -140,7 +141,7 @@ use yii\web\JsExpression;
                                 'autoclose' => true
                             ]
                         ]);
-                     
+
                         ?>
                         <!--= $form->field($stmt, 'ship_date')->textInput(['maxlength' => true, 'class' => 'form-control datetimepicker'])->label(false); ?-->
                         <span class="bmd-help">
@@ -148,36 +149,35 @@ use yii\web\JsExpression;
                         </span>
                     </div>
                     <div class="form-group">
-                    <label for="<?= Html::getInputId($stmt, 'venue_id'); ?>" class="">
+                        <label for="<?= Html::getInputId($stmt, 'venue_id'); ?>" class="">
                             <?= Html::activeLabel($stmt, 'venue_id'); ?>
                         </label>
-                        
-                            <?php
-                            echo Select2::widget([
-                                    'data' => ArrayHelper::map(Venue::find()->all(), 'venue_id', function ($place) {
-                                        return $place->ship_name . ',' .
-                                            $place->ship_add1 . ',' .
-                                            $place->ship_add2 . ',' .
-                                            $place->ship_city . ',' .
-                                            $place->ship_state . '-' .
-                                            $place->ship_phone1 . ',' .
-                                            $place->ship_phone2;
 
-                                    }),
-                                    'model' => $stmt,
-                                    'attribute' => 'venue_id',
-                                    'size' => Select2::MEDIUM,
-                                    'class' => 'form-control',
-                                  //  'placeholder' => 'type venue name...'
-                                    // 'addon' => ['prepend' => 'Select']   
-                              
-                           ] );
-                            ?>
-                            <span class="bmd-help">
-                                <?= Html::activeHint($stmt, 'venue_id'); ?>
-                            </span>
-                        
-                    </div>                   
+                        <?php
+                        echo Select2::widget([
+                            'data' => ArrayHelper::map(Venue::find()->all(), 'venue_id', function ($place) {
+                                return $place->ship_name . ',' .
+                                    $place->ship_add1 . ',' .
+                                    $place->ship_add2 . ',' .
+                                    $place->ship_city . ',' .
+                                    $place->ship_state . '-' .
+                                    $place->ship_phone1 . ',' .
+                                    $place->ship_phone2;
+                            }),
+                            'model' => $stmt,
+                            'attribute' => 'venue_id',
+                            'size' => Select2::MEDIUM,
+                            'class' => 'form-control',
+                            //  'placeholder' => 'type venue name...'
+                            // 'addon' => ['prepend' => 'Select']   
+
+                        ]);
+                        ?>
+                        <span class="bmd-help">
+                            <?= Html::activeHint($stmt, 'venue_id'); ?>
+                        </span>
+
+                    </div>
                 </div>
             </div>
             <div class="col-12">
@@ -187,10 +187,10 @@ use yii\web\JsExpression;
                     ?>
                     <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-primary m-2' : 'btn btn-primary']) ?>
 
-                   <!-- <button class="main-btn danger-btn-outline m-2">
+                    <!-- <button class="main-btn danger-btn-outline m-2">
                         Cancel
                     </button>
-                                --> 
+                                -->
                 </div>
             </div>
             <?php ActiveForm::end(); ?>

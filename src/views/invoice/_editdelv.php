@@ -1,4 +1,5 @@
 <?php
+
 use kartik\editable\Editable;
 use yii\helpers\Url;
 use yii\helpers\Html;

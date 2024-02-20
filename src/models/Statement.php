@@ -48,10 +48,10 @@ class Statement extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['st_type', 'customer_no', 'venue_id',  ], 'integer'],
-            [['customer_no', 'venue_id', 'ship_date',  'closed', ], 'required'],
+            [['st_type', 'customer_no', 'venue_id',], 'integer'],
+            [['customer_no', 'venue_id', 'ship_date',  'closed',], 'required'],
             [['ship_date'], 'safe'],
-           // [['CREATE_DATE'], 'string', 'max' => 20],
+            // [['CREATE_DATE'], 'string', 'max' => 20],
             [['paid', 'closed'], 'string', 'max' => 1],
             [['notes'], 'string', 'max' => 255],
         ];
@@ -72,7 +72,7 @@ class Statement extends \yii\db\ActiveRecord
             'paid' => 'Paid',
             'closed' => 'Closed',
             'notes' => 'Notes',
-            
+
             'updated_at' => 'Modified',
             'cuser_id' => 'Cuser ID',
             'uuser_id' => 'Uuser ID',
@@ -89,7 +89,7 @@ class Statement extends \yii\db\ActiveRecord
         return $this->hasMany(Movement::class, ['st_id' => 'id']);
     }
 
-     /**
+    /**
      * Gets query for [[Movement]].
      *
      * @return \yii\db\ActiveQuery
@@ -121,6 +121,4 @@ class Statement extends \yii\db\ActiveRecord
         $rm = ($this->st_type == Statement::TYPE_QUOTATION) ? $this->getQuotation()->one() : $this->getInvoice()->one();
         return $rm;
     }
-
-
 }

@@ -20,8 +20,8 @@ use yii\jui\Dialog;
 
 <?php
 Modal::begin([
-     'title' => $title,
-     'toggleButton' => ['label' => $label],
+    'title' => $title,
+    'toggleButton' => ['label' => $label],
     'clientOptions' => [
         'title' => 'Create  Invoice',
         'modal' => true,
@@ -66,7 +66,6 @@ Modal::begin([
                     $place->ship_state . '-' .
                     $place->ship_phone1 . ',' .
                     $place->ship_phone2;
-
             }),
             'size' => Select2::SMALL,
             'class' => 'form-control'

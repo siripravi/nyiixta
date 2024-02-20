@@ -46,78 +46,80 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 	const SCENARIO_CREATE = 'create';
 	const SCENARIO_UPDATE = 'update';
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return 'user';
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public static function tableName()
+	{
+		return 'user';
+	}
 
-    public function behaviors() {
-	    $behaviors = parent::behaviors();
+	public function behaviors()
+	{
+		$behaviors = parent::behaviors();
 
-	    // auto fill timestamp columns.
-	    if ($this->hasAttribute('created_at') || $this->hasAttribute('updated_at')) {
-		    $behavior = [
-			    'class' => TimestampBehavior::class,
-			    'value' => new Expression('NOW()'),
-		    ];
-		    if ($this->hasAttribute('created_at')) {
-			    $behavior['createdAtAttribute'] = 'created_at';
-		    } else {
-			    $behavior['createdAtAttribute'] = null;
-		    }
-		    if ($this->hasAttribute('updated_at')) {
-			    $behavior['updatedAtAttribute'] = 'updated_at';
-		    } else {
-			    $behavior['updatedAtAttribute'] = null;
-		    }
-		    $behaviors[] = $behavior;
-	    }
-	    return $behaviors;
-    }
+		// auto fill timestamp columns.
+		if ($this->hasAttribute('created_at') || $this->hasAttribute('updated_at')) {
+			$behavior = [
+				'class' => TimestampBehavior::class,
+				'value' => new Expression('NOW()'),
+			];
+			if ($this->hasAttribute('created_at')) {
+				$behavior['createdAtAttribute'] = 'created_at';
+			} else {
+				$behavior['createdAtAttribute'] = null;
+			}
+			if ($this->hasAttribute('updated_at')) {
+				$behavior['updatedAtAttribute'] = 'updated_at';
+			} else {
+				$behavior['updatedAtAttribute'] = null;
+			}
+			$behaviors[] = $behavior;
+		}
+		return $behaviors;
+	}
 
 	/**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-	        [['email', 'first_name', 'last_name'], 'trim'],
-	        ['email', 'unique'],
-	        ['email', 'email'],
-	        [['first_name', 'last_name', 'email'], 'string', 'max' => 100],
-	        [['passwd'], 'string', 'length' => [6, 100]],
-	        [['group_id'], 'integer'],
-	        [['first_name', 'last_name', 'email','passwd'], 'required', 'on' => self::SCENARIO_CREATE],
-	        [['first_name', 'last_name', 'email'], 'required', 'on' => self::SCENARIO_UPDATE],
-        ];
-    }
+	 * {@inheritdoc}
+	 */
+	public function rules()
+	{
+		return [
+			[['email', 'first_name', 'last_name'], 'trim'],
+			['email', 'unique'],
+			['email', 'email'],
+			[['first_name', 'last_name', 'email'], 'string', 'max' => 100],
+			[['passwd'], 'string', 'length' => [6, 100]],
+			[['group_id'], 'integer'],
+			[['first_name', 'last_name', 'email', 'passwd'], 'required', 'on' => self::SCENARIO_CREATE],
+			[['first_name', 'last_name', 'email'], 'required', 'on' => self::SCENARIO_UPDATE],
+		];
+	}
 
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'user_id' => 'User ID',
-            'group_id' => 'Group ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'email' => 'Email',
-            'auth_key' => 'Auth Key',
-            'access_token' => 'Access Token',
-            'password' => 'Password',
-	        'passwd'   => 'Password',
-            'password_reset_key' => 'Password Reset Key',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-        ];
-    }
+	/**
+	 * {@inheritdoc}
+	 */
+	public function attributeLabels()
+	{
+		return [
+			'user_id' => 'User ID',
+			'group_id' => 'Group ID',
+			'first_name' => 'First Name',
+			'last_name' => 'Last Name',
+			'email' => 'Email',
+			'auth_key' => 'Auth Key',
+			'access_token' => 'Access Token',
+			'password' => 'Password',
+			'passwd'   => 'Password',
+			'password_reset_key' => 'Password Reset Key',
+			'status' => 'Status',
+			'created_at' => 'Created At',
+			'updated_at' => 'Updated At',
+		];
+	}
 
-	public function attributeHints() {
+	public function attributeHints()
+	{
 		return [
 			'first_name'        => \Yii::t('app', 'Enter your First Name'),
 			'last_name'         => \Yii::t('app', 'Enter your Last Name'),

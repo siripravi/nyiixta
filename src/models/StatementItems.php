@@ -19,8 +19,8 @@ use Yii;
 class StatementItems extends \yii\db\ActiveRecord
 {
     const ITEM_STATUS_OLD = 0;
-	const ITEM_STATUS_NEW = 1;
-	const ITEM_STATUS_DELETE = 3;
+    const ITEM_STATUS_NEW = 1;
+    const ITEM_STATUS_DELETE = 3;
     /**
      * {@inheritdoc}
      */

@@ -24,7 +24,7 @@ class UserForgotForm extends Model
      * @var string
      */
     public $email = '';
-    
+
     /**
      * @return array the validation rules.
      */
@@ -49,35 +49,36 @@ class UserForgotForm extends Model
         if ($this->hasErrors()) {
             return;
         }
-        
+
         $model = User::findOne([
-            'email'  => $this->$attribute, 
+            'email'  => $this->$attribute,
             'status' => 'active'
         ]);
-        
+
         if (empty($model)) {
             $this->addError('email', 'Invalid email address!');
         }
     }
 
-	/**
-	 * @return bool
-	 * @throws \yii\base\Exception
-	 */
-	public function sendEmail() {
-		if ( ! $this->validate() ) {
-			return false;
-		}
+    /**
+     * @return bool
+     * @throws \yii\base\Exception
+     */
+    public function sendEmail()
+    {
+        if (!$this->validate()) {
+            return false;
+        }
 
-		if ( ! ( $model = User::findByEmail( $this->email ) ) ) {
-			return false;
-		}
+        if (!($model = User::findByEmail($this->email))) {
+            return false;
+        }
 
-		$model->password_reset_key = \Yii::$app->security->generateRandomString();
-		$model->save( false );
+        $model->password_reset_key = \Yii::$app->security->generateRandomString();
+        $model->save(false);
 
-		//here the email function
+        //here the email function
 
-		return true;
-	}
+        return true;
+    }
 }

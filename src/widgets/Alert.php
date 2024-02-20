@@ -1,4 +1,5 @@
 <?php
+
 namespace siripravi\nyiixta\widgets;
 
 use Yii;

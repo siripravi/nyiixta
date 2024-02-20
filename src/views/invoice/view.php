@@ -34,8 +34,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'st_id',
             'invoice_id',
-           // 'CUSTOMER_NO',
-           // 'INVOICE_DATE',
+            // 'CUSTOMER_NO',
+            // 'INVOICE_DATE',
             /*'SHIP_DATE',
             'SHIP_NAME',
             'SHIP_ADD1',

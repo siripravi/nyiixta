@@ -206,7 +206,7 @@ class AngularHelper extends Widget
 		$this->_clientScript = new AssetManager;
 
 		// JS
-		if ($this->includeAngular) {			
+		if ($this->includeAngular) {
 			// register the main AngularJS script
 			$this->view->registerJsFile(
 				$this->baseUrl .
@@ -222,7 +222,7 @@ class AngularHelper extends Widget
 						$this->_vendorAssets[1] . '/angular-' . $scriptName . $jsExt,
 					['position' => $this->scriptsPosition]
 				);
-			}			
+			}
 		}
 
 		// register the application scripts, if available
@@ -244,7 +244,7 @@ class AngularHelper extends Widget
 						['position' => $this->scriptsPosition]
 					);
 				}
-			
+
 				if ($this->includeAngular) {
 					// register the requested common scripts in the given order:
 					foreach ($this->_publishedCommonAppScripts as $scriptFileUrl) {

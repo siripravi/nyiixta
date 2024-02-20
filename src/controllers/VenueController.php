@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\rest\ActiveController;
 use yii\db\Query;
+
 /**
  * VenueController implements the CRUD actions for Venue model.
  */
@@ -119,22 +120,22 @@ class VenueController extends Controller
         }
     }
 
-    public function actionVenueList($q = null, $id = null){
+    public function actionVenueList($q = null, $id = null)
+    {
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-    $out = ['results' => ['id' => '', 'text' => '']];
-    if (!is_null($q)) {
-        $query = new Query;
-        $query->select('venue_id, ship_name AS text')
-            ->from('venue')
-            ->where(['like', 'ship_name', $q])
-            ->limit(20);
-        $command = $query->createCommand();
-        $data = $command->queryAll();
-        $out['results'] = array_values($data);
-    }
-    elseif ($id > 0) {
-        $out['results'] = ['id' => $id, 'text' => Venue::find($id)->ship_name];
-    }
-    return $out;
+        $out = ['results' => ['id' => '', 'text' => '']];
+        if (!is_null($q)) {
+            $query = new Query;
+            $query->select('venue_id, ship_name AS text')
+                ->from('venue')
+                ->where(['like', 'ship_name', $q])
+                ->limit(20);
+            $command = $query->createCommand();
+            $data = $command->queryAll();
+            $out['results'] = array_values($data);
+        } elseif ($id > 0) {
+            $out['results'] = ['id' => $id, 'text' => Venue::find($id)->ship_name];
+        }
+        return $out;
     }
 }

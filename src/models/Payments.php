@@ -35,7 +35,7 @@ class Payments extends \yii\db\ActiveRecord
     {
         return [
             [['invoice_id', 'mode_id', 'pay_date'], 'required'],
-            [[ 'invoice_id','mode_id'], 'integer'],
+            [['invoice_id', 'mode_id'], 'integer'],
             [['amount'], 'number'],
             [['pay_date'], 'safe'],
             [['details'], 'string', 'max' => 100],
@@ -80,7 +80,7 @@ class Payments extends \yii\db\ActiveRecord
         return Yii::$app->formatter->asCurrency($money ?? 0, "USD");
     }
 
-    
+
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {

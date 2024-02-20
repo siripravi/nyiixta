@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 
 ?>
@@ -11,8 +12,7 @@ use yii\helpers\Html;
             </a>
         </div>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
@@ -42,11 +42,10 @@ use yii\helpers\Html;
                 </li>
 
                 <li class="nav-item dropdown">
-                    <button class="btn btn-primary btn-outline dropdown-toggle" href="#pablo" id="navbarDropdownCreate"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-primary btn-outline dropdown-toggle" href="#pablo" id="navbarDropdownCreate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">add</i>
                         <span class="">
-                            
+
                         </span>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownCreate">
@@ -58,8 +57,7 @@ use yii\helpers\Html;
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">notifications</i>
                         <span class="notification">5</span>
                         <p class="d-lg-none d-md-block">
@@ -75,8 +73,7 @@ use yii\helpers\Html;
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="material-icons">person</i>
                         <p class="d-lg-none d-md-block">
                             Account
@@ -87,7 +84,7 @@ use yii\helpers\Html;
                         <a class="dropdown-item" href="#">Settings</a>
                         <div class="dropdown-divider"></div>
                         <?php echo
-                            Yii::$app->user->isGuest ?
+                        Yii::$app->user->isGuest ?
                             Html::a(
                                 'Log in',
                                 ['/site/login'],

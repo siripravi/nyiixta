@@ -1,17 +1,18 @@
 <?php
+
 use kartik\sidenav\SideNav;
 use yii\helpers\Url;
 
 ?>
 <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
 
-<?php
-echo SideNav::widget([
-  'type' => SideNav::TYPE_DEFAULT,
-  'encodeLabels' => false,
-  'heading' => '<i class="fas fa-cog"></i> Operations',
-  'headingOptions' => ['class'=>'head-style'],
-  'items' => [
+  <?php
+  echo SideNav::widget([
+    'type' => SideNav::TYPE_DEFAULT,
+    'encodeLabels' => false,
+    'heading' => '<i class="fas fa-cog"></i> Operations',
+    'headingOptions' => ['class' => 'head-style'],
+    'items' => [
       // Important: you need to specify url as 'controller/action',
       // not just as 'controller' even if default action is used.
       //
@@ -22,26 +23,26 @@ echo SideNav::widget([
       //
       ['label' => 'Home', 'icon' => 'home', 'url' => ['/site/home'], 'active' => false],
       ['label' => 'Books', 'icon' => 'book', 'items' => [
-          ['label' => '<span class="pull-right float-right float-end badge">10</span> New Arrivals', 'url' => ['/site/new-arrivals'], 'active' =>  false],
-          ['label' => '<span class="pull-right float-right float-end badge">5</span> Most Popular', 'url' => ['/site/most-popular'], 'active' =>  false],
-          ['label' => 'Read Online', 'icon' => 'cloud', 'items' => [
-              ['label' => 'Online 1', 'url' => ['/site/online-1'], 'active' => false],
-              ['label' => 'Online 2', 'url' => ['/site/online-2'], 'active' => false]
-          ]],
+        ['label' => '<span class="pull-right float-right float-end badge">10</span> New Arrivals', 'url' => ['/site/new-arrivals'], 'active' =>  false],
+        ['label' => '<span class="pull-right float-right float-end badge">5</span> Most Popular', 'url' => ['/site/most-popular'], 'active' =>  false],
+        ['label' => 'Read Online', 'icon' => 'cloud', 'items' => [
+          ['label' => 'Online 1', 'url' => ['/site/online-1'], 'active' => false],
+          ['label' => 'Online 2', 'url' => ['/site/online-2'], 'active' => false]
+        ]],
       ]],
       ['label' => '<span class="pull-right float-right float-end badge">3</span> Categories', 'icon' => 'tags', 'items' => [
-          ['label' => 'Fiction', 'url' => ['/site/fiction'], 'active' => false],
-          ['label' => 'Historical', 'url' => ['/site/historical'], 'active' => false],
-          ['label' => '<span class="pull-right float-right float-end badge">2</span> Announcements', 'icon' => 'bullhorn', 'items' => [
-              ['label' => 'Event 1', 'url' => ['/site/event-1'], 'active' => false],
-              ['label' => 'Event 2', 'url' => ['/site/event-2'], 'active' => false]
-          ]],
+        ['label' => 'Fiction', 'url' => ['/site/fiction'], 'active' => false],
+        ['label' => 'Historical', 'url' => ['/site/historical'], 'active' => false],
+        ['label' => '<span class="pull-right float-right float-end badge">2</span> Announcements', 'icon' => 'bullhorn', 'items' => [
+          ['label' => 'Event 1', 'url' => ['/site/event-1'], 'active' => false],
+          ['label' => 'Event 2', 'url' => ['/site/event-2'], 'active' => false]
+        ]],
       ]],
       ['label' => 'Profile', 'icon' => 'user', 'url' => ['/site/profile'], 'active' => true],
-  ],
-]);        
+    ],
+  ]);
 
-?>
+  ?>
 
 </aside>
 

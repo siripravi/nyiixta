@@ -46,7 +46,7 @@ class InvoiceSearch extends Invoice
         ]);
 
         $query->andFilterWhere(['like', 'INVOICE_NO', $this->INVOICE_NO])
-          /*  ->andFilterWhere(['like', 'SHIP_NAME', $this->SHIP_NAME])
+            /*  ->andFilterWhere(['like', 'SHIP_NAME', $this->SHIP_NAME])
             ->andFilterWhere(['like', 'SHIP_ADD1', $this->SHIP_ADD1])
             ->andFilterWhere(['like', 'SHIP_ADD2', $this->SHIP_ADD2])
             ->andFilterWhere(['like', 'SHIP_CITY', $this->SHIP_CITY])

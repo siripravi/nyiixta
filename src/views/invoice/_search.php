@@ -27,29 +27,41 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'SHIP_DATE') ?>
 
-    <?php // echo $form->field($model, 'SHIP_NAME') ?>
+    <?php // echo $form->field($model, 'SHIP_NAME') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_ADD1') ?>
+    <?php // echo $form->field($model, 'SHIP_ADD1') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_ADD2') ?>
+    <?php // echo $form->field($model, 'SHIP_ADD2') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_CITY') ?>
+    <?php // echo $form->field($model, 'SHIP_CITY') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_STATE') ?>
+    <?php // echo $form->field($model, 'SHIP_STATE') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_ZIP') ?>
+    <?php // echo $form->field($model, 'SHIP_ZIP') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_PHONE1') ?>
+    <?php // echo $form->field($model, 'SHIP_PHONE1') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_PHONE2') ?>
+    <?php // echo $form->field($model, 'SHIP_PHONE2') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_EMAIL1') ?>
+    <?php // echo $form->field($model, 'SHIP_EMAIL1') 
+    ?>
 
-    <?php // echo $form->field($model, 'SHIP_DETAILS') ?>
+    <?php // echo $form->field($model, 'SHIP_DETAILS') 
+    ?>
 
-    <?php // echo $form->field($model, 'CLOSED') ?>
+    <?php // echo $form->field($model, 'CLOSED') 
+    ?>
 
-    <?php // echo $form->field($model, 'NOTES') ?>
+    <?php // echo $form->field($model, 'NOTES') 
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

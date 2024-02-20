@@ -12,15 +12,15 @@ use yii\helpers\Html;
 -->
     <div class="logo">
         <a href="#" class="simple-text logo-normal">
-            Material Dashboard 
+            Material Dashboard
         </a>
     </div>
     <div class="sidebar-wrapper">
         <?= Menu::widget([
             'items' => [
                 ['label' => 'Dashboard', 'icon' => 'dashboard', 'url' => ['/']],
-              //  ['label' => 'About', 'icon' => 'table_chart', 'url' => ['site/about']],
-               // ['label' => 'Contact', 'icon' => 'web', 'url' => ['site/contact']],
+                //  ['label' => 'About', 'icon' => 'table_chart', 'url' => ['site/about']],
+                // ['label' => 'Contact', 'icon' => 'web', 'url' => ['site/contact']],
                 ['label' => 'Invoices', 'icon' => 'web', 'url' => ['/invoice']],
                 ['label' => 'Javascript', 'icon' => 'code', 'url' => ['/javascript']],
                 ['label' => 'Notifications', 'icon' => 'notifications', 'url' => ['/notifications']],
@@ -36,12 +36,12 @@ use yii\helpers\Html;
                     ]],
                 ]],
             ]
-        ]); ?>    
+        ]); ?>
     </div>
 </div>
 <script>
-  
+
 </script>
 <script>
-   
+
 </script>

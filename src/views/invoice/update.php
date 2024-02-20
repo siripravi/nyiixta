@@ -1,4 +1,5 @@
 <?php
+
 use yii\bootstrap5\Accordion;
 use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
@@ -55,13 +56,13 @@ $pk = $model->primaryKey;
   </div>
   <!-- end row -->
 </div>
-<?php if (!empty($model->invoice_id)): ?>
+<?php if (!empty($model->invoice_id)) : ?>
   <div class="invoice-wrapper">
     <div class="row">
       <div class="col-12">
         <div class="invoice-card card-style mb-30">
-          <?= $this->render('_invheader', ['model' => $model, 'stmt' => $stmt, 'customer' => $stmt->customer, 'delivery' => $stmt->venue,'angular'=>$angular]); ?>
-          
+          <?= $this->render('_invheader', ['model' => $model, 'stmt' => $stmt, 'customer' => $stmt->customer, 'delivery' => $stmt->venue, 'angular' => $angular]); ?>
+
         </div>
       </div>
     </div>

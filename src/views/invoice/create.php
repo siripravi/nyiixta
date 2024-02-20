@@ -1,4 +1,5 @@
 <?php
+
 use yii\bootstrap\Modal;
 use yii\bootstrap\ActiveForm;
 use bootui\select2\Select2;
@@ -17,7 +18,7 @@ use yii\helpers\Html;
 
         <div ng-controller="ModalInvCtrl" class="ng-scope">
             <script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-header">
+                <div class="modal-header">
         <h3>Create Invoice</h3>
     </div>
 
@@ -71,5 +72,4 @@ use yii\helpers\Html;
         </div>
     </div>
 </div>
-<div id="toast-container" ng-class="config.position" toaster-options="{'position-class': 'toast-top-right'}"
-    class="ng-scope toast-top-right"><!-- ngRepeat: toaster in toasters --></div>
+<div id="toast-container" ng-class="config.position" toaster-options="{'position-class': 'toast-top-right'}" class="ng-scope toast-top-right"><!-- ngRepeat: toaster in toasters --></div>

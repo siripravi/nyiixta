@@ -13,10 +13,10 @@
 $this->title = $name;
 ?>
 <div class="content-center">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="title" style="color:white"><?= \yii\helpers\Html::encode($this->title) ?></h1>
-        <h2><?= nl2br(\yii\helpers\Html::encode($message)) ?></h2>
-      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="title" style="color:white"><?= \yii\helpers\Html::encode($this->title) ?></h1>
+      <h2><?= nl2br(\yii\helpers\Html::encode($message)) ?></h2>
     </div>
+  </div>
 </div>

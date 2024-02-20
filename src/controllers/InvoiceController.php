@@ -104,7 +104,6 @@ class InvoiceController extends Controller
                 } else
                     print_r($invoice->errors);
                 die;
-
             }
             // $this->redirect('document/update',array('id'=>$invoice->invoice_id));
         } else {
@@ -180,7 +179,6 @@ class InvoiceController extends Controller
             $response["cost"] = $item->price;
         }
         echo Json::encode($response);
-
     }
     /**
      * Updates an existing Invoice model.
@@ -200,15 +198,15 @@ class InvoiceController extends Controller
             $customer = $stmt->customer;
             // use Yii's response format to encode output as JSON
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            
+
             // store old value of the attribute
             $oldValue = $customer->full_name;
-            
+
             // read your posted model attributes
             if ($customer->load($_POST)) {
                 // read or convert your posted information
                 $value = $customer->full_name;
-                
+
                 // validate if any errors
                 if ($model->save()) {
                     // return JSON encoded output in the below format on success with an empty `message`
@@ -218,10 +216,10 @@ class InvoiceController extends Controller
                     return ['output' => $oldValue, 'message' => 'Incorrect Value! Please reenter.'];
                 }
             }
-            
+
             // else if nothing to do always return an empty JSON encoded output
             else {
-                return ['output'=>'', 'message'=>''];
+                return ['output' => '', 'message' => ''];
             }
         }
         $grandtotal = 0.0;
@@ -233,7 +231,6 @@ class InvoiceController extends Controller
                 $item->invoice_id = $model->invoice_id;
                 $item->save();
             }
-
         }
 
         if ($model->load($items) && $model->save()) {
@@ -244,7 +241,7 @@ class InvoiceController extends Controller
             'model' => $model,
             'stmt' => $stmt,
             'angular' => $items,
-           // 'stmt' => $stmt
+            // 'stmt' => $stmt
         ]);
         //}
     }
@@ -380,8 +377,6 @@ class InvoiceController extends Controller
 
         // return the pdf output as per the destination setting
         return $pdf->render();
-
-
     }
 
     public static function assignItems($model, $items_posted)
@@ -468,28 +463,29 @@ class InvoiceController extends Controller
         $models = Invoice::find(
             [],
             $condition = 'invoice_id = :someVarName',
-            $params = [':someVarName' => $id   ]
+            $params = [':someVarName' => $id]
         )->all();
         if (!empty($models))
             return $models[0];
     }
 
-    public function actionEditableDemo() {
+    public function actionEditableDemo()
+    {
         $model = new Customer; // your model can be loaded here
-        
+
         // Check if there is an Editable ajax request
         if (isset($_POST['hasEditable'])) {
             // use Yii's response format to encode output as JSON
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-            
+
             // store old value of the attribute
-            $oldValue = $model-first_name;
-            
+            $oldValue = $model - first_name;
+
             // read your posted model attributes
             if ($model->load($_POST)) {
                 // read or convert your posted information
                 $value = $model->first_name;
-                
+
                 // validate if any errors
                 if ($model->save()) {
                     // return JSON encoded output in the below format on success with an empty `message`
@@ -501,10 +497,10 @@ class InvoiceController extends Controller
             }
             // else if nothing to do always return an empty JSON encoded output
             else {
-                return ['output'=>'', 'message'=>''];
+                return ['output' => '', 'message' => ''];
             }
         }
-        
+
         // Else return to rendering a normal view
         return $this->render('demo', ['model' => $model]);
     }

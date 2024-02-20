@@ -3,8 +3,7 @@
 	<section class="invoice">
 
 		<?php
-		if ($model->primaryKey !== null)
-		: ?>
+		if ($model->primaryKey !== null) : ?>
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -19,8 +18,7 @@
 									$event = null;
 
 									?>
-									<a class="btn btn-lg btn-warning" id="submit_item_button" ng-click="load($event)"
-										name="myButton" role="button" aria-disabled="true">
+									<a class="btn btn-lg btn-warning" id="submit_item_button" ng-click="load($event)" name="myButton" role="button" aria-disabled="true">
 										<i class="fa fa-save"></i> SAVE</a>
 
 								</fieldset>
@@ -51,41 +49,27 @@
 								<tr class="grid-row ng-scope" ng-repeat="item in invoice.items" ng-hide="item.status == 3">
 
 									<td>
-										<a class="rowOption btn btn-sm" href="javascript:void(0)" title="Insert new row"
-											ng-click="insertRow($index)">
+										<a class="rowOption btn btn-sm" href="javascript:void(0)" title="Insert new row" ng-click="insertRow($index)">
 											<i class=" icon-circle-arrow-down icon-2x"></i>
 										</a>
 									</td>
 									<td>
 										<b>{{$index + 1}}</b>
-										<input style="width:38px;display:none"
-											id="<?php echo 'StatementItems_'; ?>{{$index}}<?php echo 'sequence'; ?>"
-											name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']sequence'; ?>"
-											placeholder="1" type="text" value="{{$index + 1}}">
+										<input style="width:38px;display:none" id="<?php echo 'StatementItems_'; ?>{{$index}}<?php echo 'sequence'; ?>" name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']sequence'; ?>" placeholder="1" type="text" value="{{$index + 1}}">
 									</td>
 									<td>
 										<div ng-hide="editingData[$index + 1]"> {{item.DESCRIPTION}} </div>
 										<div ng-show="editingData[$index + 1] || (item.ID == 0)">
-											<textarea style="width:423px" ng-model="item.DESCRIPTION"
-												name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']DESCRIPTION'; ?>"
-												id="<?php echo 'StatemetItems_'; ?>{{$index}}<?php echo '_DESCRIPTION'; ?>"></textarea>
+											<textarea style="width:423px" ng-model="item.DESCRIPTION" name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']DESCRIPTION'; ?>" id="<?php echo 'StatemetItems_'; ?>{{$index}}<?php echo '_DESCRIPTION'; ?>"></textarea>
 										</div>
 									</td>
 									<td>
 										<div ng-hide="editingData[$index + 1]"> {{item.QUANTITY}} </div>
-										<textarea ng-show="editingData[$index + 1] || (item.ID == 0)" style="width:80px"
-											ng-change="rowTotal($index)"
-											class="invoiceColThreeDetails text-center ng-valid ng-dirty" id="cel3-row1"
-											name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']QUANTITY'; ?>"
-											ng-model="item.QUANTITY" placeholder="0" type="text" value=""></textarea>
+										<textarea ng-show="editingData[$index + 1] || (item.ID == 0)" style="width:80px" ng-change="rowTotal($index)" class="invoiceColThreeDetails text-center ng-valid ng-dirty" id="cel3-row1" name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']QUANTITY'; ?>" ng-model="item.QUANTITY" placeholder="0" type="text" value=""></textarea>
 									</td>
 									<td>
 										<div ng-hide="editingData[$index + 1]"> {{item.PRICE}} </div>
-										<textarea ng-show="editingData[$index + 1] || (item.ID == 0)" style="width:80px"
-											ng-change="rowTotal($index)"
-											class="invoiceColFourDetails text-center ng-valid ng-dirty" id="cel4-row1"
-											name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']PRICE'; ?>"
-											ng-model="item.PRICE" placeholder="0" type="text" real-time-currency></textarea>
+										<textarea ng-show="editingData[$index + 1] || (item.ID == 0)" style="width:80px" ng-change="rowTotal($index)" class="invoiceColFourDetails text-center ng-valid ng-dirty" id="cel4-row1" name="<?php echo 'StatementItems['; ?>{{$index}}<?php echo ']PRICE'; ?>" ng-model="item.PRICE" placeholder="0" type="text" real-time-currency></textarea>
 									</td>
 									<td style="font-weight:bolder">
 										<b>{{rowTotal(item)}}</b>
@@ -93,13 +77,11 @@
 
 									<td>
 										<div class="mailbox-controls" style="padding:5px;">
-											<a class="rowOption  btn btn-sm" href="javascript:void(0)"
-												title="Delete row (Ctrl+Delete)" ng-click="deleteRow($index)">
+											<a class="rowOption  btn btn-sm" href="javascript:void(0)" title="Delete row (Ctrl+Delete)" ng-click="deleteRow($index)">
 												<i class="icon-remove"></i>
 											</a>
 											&nbsp;&nbsp;
-											<a class="rowOption  btn btn-sm" ng-hide="editingData[$index + 1]"
-												ng-click="modify($index + 1)">
+											<a class="rowOption  btn btn-sm" ng-hide="editingData[$index + 1]" ng-click="modify($index + 1)">
 												<i class="icon-pencil"></i></a>
 										</div>
 									</td>
@@ -107,8 +89,7 @@
 							</tbody>
 							<!-- end ngRepeat: item in invoice.items -->
 						</table>
-						<a href="javascript:void(0)" class=" btn btn-success add-item" title="Add new row (Ctrl+Enter)"
-							ng-click="addRow()">
+						<a href="javascript:void(0)" class=" btn btn-success add-item" title="Add new row (Ctrl+Enter)" ng-click="addRow()">
 							<i class="fa fa-plus"></i> Add Row
 						</a>
 
@@ -125,8 +106,7 @@
 							<td>{{subTotal()}}</td>
 						</tr>
 						<?php
-						if (TRUE)
-						: ?>
+						if (TRUE) : ?>
 							<tr>
 								<th>Paid</th>
 								<td>

@@ -12,6 +12,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Json;
+
 /**
  * StatementController implements the CRUD actions for Statement model.
  */
@@ -35,10 +36,10 @@ class StatementController extends Controller
             ]
         );
     }
-    public function beforeAction($action) 
-    { 
-        $this->enableCsrfValidation = false; 
-        return parent::beforeAction($action); 
+    public function beforeAction($action)
+    {
+        $this->enableCsrfValidation = false;
+        return parent::beforeAction($action);
     }
     /**
      * Lists all Statement models.
@@ -71,7 +72,7 @@ class StatementController extends Controller
         $flag = false;
         if (isset($_POST['Statement'])) {
             $model->attributes = $_POST['Statement'];
-           // $model->ship_date = $model->event_date; //CDateTimeParser::parse($model->event_date, 'MM-dd-yyyy');
+            // $model->ship_date = $model->event_date; //CDateTimeParser::parse($model->event_date, 'MM-dd-yyyy');
 
             if ($model->validate() && $model->save()) {
                 $rmodel = ($model->st_type == Statement::TYPE_QUOTATION) ? new Quotation() : new Invoice();
@@ -198,7 +199,7 @@ class StatementController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    public function actionDocItems($docid,$invid, $custid = null,$venid = null,$evdate = null)
+    public function actionDocItems($docid, $invid, $custid = null, $venid = null, $evdate = null)
     {
 
         $this->docId = !empty($_GET['docid']) ? $_GET['docid'] : null;
@@ -215,17 +216,17 @@ class StatementController extends Controller
         */
         if (!empty($stmt)) {
 
-         //   $stmt->getRelModel()->update_time = date('Y-m-d H:i:s');
-           
-        //    $stmt->relModel->uuser_id = \Yii::app()->user->id;
-        //    $stmt->relModel->update();
+            //   $stmt->getRelModel()->update_time = date('Y-m-d H:i:s');
+
+            //    $stmt->relModel->uuser_id = \Yii::app()->user->id;
+            //    $stmt->relModel->update();
 
         }
 
         $items = json_decode(file_get_contents("php://input"));
         //\Yii::debug($items); 
-       // return file_get_contents("php://input");
-       // $response = array();
+        // return file_get_contents("php://input");
+        // $response = array();
         $inv = $stmt->getRelModel(); //($stmt->st_type == Statement::TYPE_QUOTATION) ? $stmt->quotation : $stmt->invoice;
         // echo $inv->primaryKey;
         //print_r($inv->lineItems); die;
@@ -276,7 +277,6 @@ class StatementController extends Controller
         }
 
         /** *********End of only with invoice ********* */
-
     }
     /**
      * Returns the data model based on the primary key given in the GET variable.
@@ -294,109 +294,111 @@ class StatementController extends Controller
         return $model;
     }
 
-    public function actionEditableDemo() {
-    $model = new Demo; // your model can be loaded here
-    
-    // Check if there is an Editable ajax request
-    if (isset($_POST['hasEditable'])) {
-        // use Yii's response format to encode output as JSON
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        
-        // store old value of the attribute
-        $oldValue = $model->name;
-        
-        // read your posted model attributes
-        if ($model->load($_POST)) {
-            // read or convert your posted information
-            $value = $model->name;
-            
-            // validate if any errors
-            if ($model->save()) {
-                // return JSON encoded output in the below format on success with an empty `message`
-                return ['output' => $value, 'message' => ''];
-            } else {
-                // alternatively you can return a validation error (by entering an error message in `message` key)
-                return ['output' => $oldValue, 'message' => 'Incorrect Value! Please reenter.'];
-            }
-        }
-        // else if nothing to do always return an empty JSON encoded output
-        else {
-            return ['output'=>'', 'message'=>''];
-        }
-    }
-    
-    // Else return to rendering a normal view
-    return $this->render('view', ['model' => $model]);
-}
-public function actionEditCust($id) {
-    $statement = $this->findModel($id); // your model can be loaded here
-    $customer = new Customer();
-    // Check if there is an Editable ajax request
-    if (isset($_POST['hasEditable'])) {
-        // use Yii's response format to encode output as JSON
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        
-        // store old value of the attribute
-        $oldValue = $statement->customer_no;
-        
-        // read your posted model attributes
-        if (isset($_POST['Customer'])) {
-            // read or convert your posted information
-            $value = $_POST['Customer']['customer_no'];
-            $customer = Customer::findOne($value);
-            $statement->customer_no = $value;
-            // validate if any errors
-            if ($statement->save()) {
-                $message = $customer->full_address;
-                // return JSON encoded output in the below format on success with an empty `message`
-                return ['output' => $customer->full_address, 'message' => $message];
-            } else {
-                // alternatively you can return a validation error (by entering an error message in `message` key)
-                return ['output' => $oldValue, 'message' => Json::encode($statement->errors)];
-            }
-        }
-        // else if nothing to do always return an empty JSON encoded output
-        else {
-            return ['output'=>'', 'message'=>''];
-        }
-    }
-    
-    // Else return to rendering a normal view
-  //  return $this->render('view', ['model' => $model]);
-}
+    public function actionEditableDemo()
+    {
+        $model = new Demo; // your model can be loaded here
 
-public function actionEditDelv($id) {
-    $statement = $this->findModel($id); // your model can be loaded here
-    $delivery = new Venue();
-    // Check if there is an Editable ajax request
-    if (isset($_POST['hasEditable'])) {
-        // use Yii's response format to encode output as JSON
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        
-        // store old value of the attribute
-        $oldValue = $statement->venue_id;
-        
-        // read your posted model attributes
-        if (isset($_POST['Venue'])) {
-            // read or convert your posted information
-            $value = $_POST['Venue']['venue_id'];
-            $delivery = Venue::findOne($value);
-            $statement->venue_id = $value;
-            // validate if any errors
-            if ($statement->save()) {
-                $message = $delivery->full_address;
-                // return JSON encoded output in the below format on success with an empty `message`
-                return ['output' => $delivery->full_address, 'message' => $message];
-            } else {
-                // alternatively you can return a validation error (by entering an error message in `message` key)
-                return ['output' => $oldValue, 'message' => Json::encode($statement->errors)];
+        // Check if there is an Editable ajax request
+        if (isset($_POST['hasEditable'])) {
+            // use Yii's response format to encode output as JSON
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            // store old value of the attribute
+            $oldValue = $model->name;
+
+            // read your posted model attributes
+            if ($model->load($_POST)) {
+                // read or convert your posted information
+                $value = $model->name;
+
+                // validate if any errors
+                if ($model->save()) {
+                    // return JSON encoded output in the below format on success with an empty `message`
+                    return ['output' => $value, 'message' => ''];
+                } else {
+                    // alternatively you can return a validation error (by entering an error message in `message` key)
+                    return ['output' => $oldValue, 'message' => 'Incorrect Value! Please reenter.'];
+                }
+            }
+            // else if nothing to do always return an empty JSON encoded output
+            else {
+                return ['output' => '', 'message' => ''];
             }
         }
-        // else if nothing to do always return an empty JSON encoded output
-        else {
-            return ['output'=>'', 'message'=>''];
+
+        // Else return to rendering a normal view
+        return $this->render('view', ['model' => $model]);
+    }
+    public function actionEditCust($id)
+    {
+        $statement = $this->findModel($id); // your model can be loaded here
+        $customer = new Customer();
+        // Check if there is an Editable ajax request
+        if (isset($_POST['hasEditable'])) {
+            // use Yii's response format to encode output as JSON
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            // store old value of the attribute
+            $oldValue = $statement->customer_no;
+
+            // read your posted model attributes
+            if (isset($_POST['Customer'])) {
+                // read or convert your posted information
+                $value = $_POST['Customer']['customer_no'];
+                $customer = Customer::findOne($value);
+                $statement->customer_no = $value;
+                // validate if any errors
+                if ($statement->save()) {
+                    $message = $customer->full_address;
+                    // return JSON encoded output in the below format on success with an empty `message`
+                    return ['output' => $customer->full_address, 'message' => $message];
+                } else {
+                    // alternatively you can return a validation error (by entering an error message in `message` key)
+                    return ['output' => $oldValue, 'message' => Json::encode($statement->errors)];
+                }
+            }
+            // else if nothing to do always return an empty JSON encoded output
+            else {
+                return ['output' => '', 'message' => ''];
+            }
+        }
+
+        // Else return to rendering a normal view
+        //  return $this->render('view', ['model' => $model]);
+    }
+
+    public function actionEditDelv($id)
+    {
+        $statement = $this->findModel($id); // your model can be loaded here
+        $delivery = new Venue();
+        // Check if there is an Editable ajax request
+        if (isset($_POST['hasEditable'])) {
+            // use Yii's response format to encode output as JSON
+            \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            // store old value of the attribute
+            $oldValue = $statement->venue_id;
+
+            // read your posted model attributes
+            if (isset($_POST['Venue'])) {
+                // read or convert your posted information
+                $value = $_POST['Venue']['venue_id'];
+                $delivery = Venue::findOne($value);
+                $statement->venue_id = $value;
+                // validate if any errors
+                if ($statement->save()) {
+                    $message = $delivery->full_address;
+                    // return JSON encoded output in the below format on success with an empty `message`
+                    return ['output' => $delivery->full_address, 'message' => $message];
+                } else {
+                    // alternatively you can return a validation error (by entering an error message in `message` key)
+                    return ['output' => $oldValue, 'message' => Json::encode($statement->errors)];
+                }
+            }
+            // else if nothing to do always return an empty JSON encoded output
+            else {
+                return ['output' => '', 'message' => ''];
+            }
         }
     }
-    
-}
 }

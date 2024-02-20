@@ -45,7 +45,7 @@ class Venue extends \yii\db\ActiveRecord
         ];
     }
 
-    
+
     /**
      * @inheritdoc
      */
@@ -67,15 +67,15 @@ class Venue extends \yii\db\ActiveRecord
     }
 
     public function getFullAddress()
-	{
-		$address = '  
-            <address><b>'. $this->ship_name.'</b><br>'.
-            $this->ship_add1.'<br>' . $this->ship_add2 . ',' . 
-			$this->ship_city . ',' . $this->ship_state . ' - ' . $this->ship_zip . '<br>
+    {
+        $address = '  
+            <address><b>' . $this->ship_name . '</b><br>' .
+            $this->ship_add1 . '<br>' . $this->ship_add2 . ',' .
+            $this->ship_city . ',' . $this->ship_state . ' - ' . $this->ship_zip . '<br>
             <abbr title="Phone">P:</abbr>' . $this->ship_phone1
-			. '<abbr title="Phone">P:</abbr>' . $this->ship_phone2 .
-			'</address>';
+            . '<abbr title="Phone">P:</abbr>' . $this->ship_phone2 .
+            '</address>';
 
-		return $address;
-	}
+        return $address;
+    }
 }

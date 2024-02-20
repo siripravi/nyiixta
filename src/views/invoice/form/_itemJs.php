@@ -1,4 +1,5 @@
 <?php
+
 use app\models\InvoiceItems;
 
 use yii\helpers\Html;
@@ -15,7 +16,8 @@ use yii\helpers\Html;
 
 
   function addItem(button) {
-    itemCount++; lastItem++;//alert(itemCount);
+    itemCount++;
+    lastItem++; //alert(itemCount);
     var key = "InvoiceItems_n";
     button.parents('table').children('tbody').prepend(trItem.replace(/idRep/g, 'n' + itemCount));
     var qName = "invoiceitems-" + (itemCount - 1) + "-quantity";
@@ -29,11 +31,19 @@ use yii\helpers\Html;
     var curQty = parseFloat(curQtyElem.innerHTML);
     var curPrice = parseFloat(curPriceElem.innerHTML);
 
-    curPriceElem.onkeyup = function () { rowTotal(itemCount, key); }; //alert( lastItem);
-    curQtyElem.onkeyup = function () { rowTotal(itemCount, key); };
+    curPriceElem.onkeyup = function() {
+      rowTotal(itemCount, key);
+    }; //alert( lastItem);
+    curQtyElem.onkeyup = function() {
+      rowTotal(itemCount, key);
+    };
 
-    curQtyElem.onchange = function () { rowTotal(curRowElem.innerHTML, key); }; //alert( lastItem);
-    curPriceElem.onchange = function () { rowTotal(curRowElem.innerHTML, key); };
+    curQtyElem.onchange = function() {
+      rowTotal(curRowElem.innerHTML, key);
+    }; //alert( lastItem);
+    curPriceElem.onchange = function() {
+      rowTotal(curRowElem.innerHTML, key);
+    };
 
     document.getElementById("total").innerHTML = 'click save to view total';
 
@@ -57,7 +67,8 @@ use yii\helpers\Html;
   }
 
   function grandTotalComp(old, now) {
-    var key = ""; var gTot = 0;
+    var key = "";
+    var gTot = 0;
     //alert(old+""+now);
     //prev items total
     key = "InvoiceItems_";
@@ -83,7 +94,7 @@ use yii\helpers\Html;
     document.getElementById("total").innerHTML = isNaN(gTot) ? "0.00" : gTot.toFixed(2);
   }
 
-  window.onload = function () {
+  window.onload = function() {
 
     var key = "InvoiceItems_";
     for (var i = 0; i < itemCount; i++) {

@@ -29,7 +29,8 @@ $provider = new ArrayDataProvider(
     [
         'allModels' => $items,
         //'sort' => [ 'attributes' => ['id', 'username', 'email'], ], 
-        'pagination' => ['pageSize' => 20,
+        'pagination' => [
+            'pageSize' => 20,
         ],
     ]
 );
@@ -41,7 +42,8 @@ $provider = new ArrayDataProvider(
     <h1>
         <?= Html::encode($this->title) ?>
     </h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
     <p>
         <?= Html::a('Create Payments', ['create'], ['data-toggle' => 'modal', 'data-target' => '#payModal', 'class' => 'btn btn-success']) ?>

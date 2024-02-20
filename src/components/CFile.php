@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CFile provides common methods to manipulate filesystem objects (files and
  * directories) from Yii Framework (http://www.yiiframework.com).
@@ -12,12 +13,14 @@
  * @copyright Copyright &copy; 2009-2013 Igor 'idle sign' Starikov
  * @license LICENSE
  */
+
 namespace siripravi\nyiixta\components;
 
 use yii\base\Component;
 use yii\base\Exception;
 
 /* Exception type raised by CFile. */
+
 class CFileException extends Exception
 {
 }
@@ -343,11 +346,14 @@ class CFile extends Component
             } else {
                 $workingDir = getcwd();
                 $win_drive = substr($workingDir, 0, 2);
-                if ($current_path { 0} !== $dir_separator { 0}) {
+                if ($current_path{
+                0} !== $dir_separator{
+                0}) {
                     $current_path = substr($workingDir, 3) . $dir_separator . $current_path;
                 }
             }
-        } elseif ($current_path { 0} !== $dir_separator) {
+        } elseif ($current_path{
+        0} !== $dir_separator) {
             $current_path = getcwd() . $dir_separator . $current_path;
         }
 
@@ -1410,7 +1416,6 @@ class CFile extends Component
                     return $this->_mime_type = $result;
                 }
                 return $this->_mime_type = $this->getMimeTypeByExtension($this->_realpath);
-
             }
 
             $this->addLog('Unable to get mime type for file');
@@ -1448,5 +1453,4 @@ class CFile extends Component
             return False;
         }
     }
-
 }

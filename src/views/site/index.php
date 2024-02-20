@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+
 use deyraka\materialdashboard\widgets\CardStats;
 use deyraka\materialdashboard\widgets\CardProduct;
 use deyraka\materialdashboard\widgets\CardChart;
@@ -15,7 +16,7 @@ $this->title = 'Dashboard';
         <div class="row">
             <div class="col-md-4">
                 <?php
-                    /* =======================================================
+                /* =======================================================
                         Example of using Card Widget
                         'id' and 'title' are MUST BE INITIALIZE and MUST BE UNIQUE Parameter.
                         'color', 'headerIcon', 'collapsable', 'titleTextType', 'showFooter', and 'footerContent' are optional.
@@ -25,68 +26,76 @@ $this->title = 'Dashboard';
                         If you enabling showFooter, don't forget to initialize 'footerContent'.
                         'titleTextType' has a const value. Default is TYPE::MUTED (another option are TYPE::INFO, SUCCESS, DANGER, PRIMARY, and WARNING).
                     ==========================================================
-                    */ 
-                    Card::begin([  
-                        'id' => 'card1', 
-                        'color' => Card::COLOR_INFO, 
-                        'headerIcon' => 'fingerprint', 
-                        'collapsable' => true, 
-                        'title' => 'Contoh Penggunaan Card Widget 1', 
-                        'titleTextType' => Card::TYPE_INFO, 
-                        'showFooter' => true,
-                        'footerContent' => 'Palangka Raya, August 13<sup>th</sup> 2019',
-                    ])
+                    */
+                Card::begin([
+                    'id' => 'card1',
+                    'color' => Card::COLOR_INFO,
+                    'headerIcon' => 'fingerprint',
+                    'collapsable' => true,
+                    'title' => 'Contoh Penggunaan Card Widget 1',
+                    'titleTextType' => Card::TYPE_INFO,
+                    'showFooter' => true,
+                    'footerContent' => 'Palangka Raya, August 13<sup>th</sup> 2019',
+                ])
                 ?>
                 <!-- START your <body> content of the Card below this line  -->
-                <span class='col-md-6'><h2>Welcome to Material Dashboard</h2></span>
-                <span class='col-md-6'><h4>This card is enabling collapsable and footer. We made with <i class="material-icons text-rose">favorite</i> for Yii 2.0 Framework</h4></span>
-                <!-- END your <body> content of the Card above this line, right before "Card::end()"  -->                
+                <span class='col-md-6'>
+                    <h2>Welcome to Material Dashboard</h2>
+                </span>
+                <span class='col-md-6'>
+                    <h4>This card is enabling collapsable and footer. We made with <i class="material-icons text-rose">favorite</i> for Yii 2.0 Framework</h4>
+                </span>
+                <!-- END your <body> content of the Card above this line, right before "Card::end()"  -->
                 <?php Card::end(); ?>
             </div>
             <div class="col-md-4">
                 <?php
-                    Card::begin([
-                        'id' => 'card2',
-                        'color' => Card::COLOR_PRIMARY,
-                        'headerIcon' => 'room',
-                        'collapsable' => false,
-                        'title' => 'Contoh Penggunaan Card Widget 2',
-                        'titleTextType' => Card::TYPE_DANGER,
-                        'showFooter' => false,
-                    ])
+                Card::begin([
+                    'id' => 'card2',
+                    'color' => Card::COLOR_PRIMARY,
+                    'headerIcon' => 'room',
+                    'collapsable' => false,
+                    'title' => 'Contoh Penggunaan Card Widget 2',
+                    'titleTextType' => Card::TYPE_DANGER,
+                    'showFooter' => false,
+                ])
                 ?>
                 <!-- START your <body> content of the Card below this line  -->
-                <span class='col-md-6'><h2>Welcome to Material Dashboard</h2></span>
-                <span class='col-md-6'><h4>This card is disabling collapsable and footer, but still Made with <i class="material-icons text-info">favorite</i> for Yii 2.0 Framework</h4></span>
-                <!-- END your <body> content of the Card above this line, right before "Card::end()"  -->                
+                <span class='col-md-6'>
+                    <h2>Welcome to Material Dashboard</h2>
+                </span>
+                <span class='col-md-6'>
+                    <h4>This card is disabling collapsable and footer, but still Made with <i class="material-icons text-info">favorite</i> for Yii 2.0 Framework</h4>
+                </span>
+                <!-- END your <body> content of the Card above this line, right before "Card::end()"  -->
                 <?php Card::end(); ?>
             </div>
             <div class="col-md-4">
                 <?php
-                    Card::begin([
-                        'id' => 'card3',
-                        'color' => Card::COLOR_WARNING,
-                        'headerIcon' => 'send',
-                        'collapsable' => false,
-                        'title' => 'Contoh Penggunaan Card Widget 3',
-                        'titleTextType' => Card::TYPE_WARNING,
-                        'showFooter' => false,
-                    ]);
+                Card::begin([
+                    'id' => 'card3',
+                    'color' => Card::COLOR_WARNING,
+                    'headerIcon' => 'send',
+                    'collapsable' => false,
+                    'title' => 'Contoh Penggunaan Card Widget 3',
+                    'titleTextType' => Card::TYPE_WARNING,
+                    'showFooter' => false,
+                ]);
                 ?>
-                <!-- START your <body> content of the Card below this line  -->                
+                <!-- START your <body> content of the Card below this line  -->
                 <?php
-                    echo Progress::widget([
-                        'title' => 'Sales Growth',
-                        'value' => 55,
-                    ]);
-                    echo Progress::widget([
-                        'title' => 'Productivity Growth',
-                        'value' => 25,
-                        'color' => Progress::COLOR_DANGER,
-                        'isBarStrip' => true,
-                        'titleTextType' => Progress::TYPE_PRIMARY
-                    ]);
-                    /* =======================================================
+                echo Progress::widget([
+                    'title' => 'Sales Growth',
+                    'value' => 55,
+                ]);
+                echo Progress::widget([
+                    'title' => 'Productivity Growth',
+                    'value' => 25,
+                    'color' => Progress::COLOR_DANGER,
+                    'isBarStrip' => true,
+                    'titleTextType' => Progress::TYPE_PRIMARY
+                ]);
+                /* =======================================================
                         Example of using Progress Widget
                         'title' and 'value' are MUST BE INITIALIZE.
                         'value' has range value where value-min is '0' and value-max is '100'.
@@ -95,16 +104,16 @@ $this->title = 'Dashboard';
                         'isBarStrip' and 'isBarAnimated' are boolean with default value false.
                         'titleTextType' has a const value. Default is TYPE::MUTED (another option are TYPE::INFO, SUCCESS, DANGER, PRIMARY, and WARNING).
                     ==========================================================
-                    */ 
-                    echo Progress::widget([
-                        'title' => 'Loyality Growth',
-                        'value' => 75,
-                        'color' => Progress::COLOR_INFO,
-                        'isBarStrip' => true,
-                        'isBarAnimated' => true,
-                        'titleTextType' => Progress::TYPE_INFO
-                    ]);
-                ?>         
+                    */
+                echo Progress::widget([
+                    'title' => 'Loyality Growth',
+                    'value' => 75,
+                    'color' => Progress::COLOR_INFO,
+                    'isBarStrip' => true,
+                    'isBarAnimated' => true,
+                    'titleTextType' => Progress::TYPE_INFO
+                ]);
+                ?>
                 <!-- END your <body> content of the Card above this line, right before "Card::end()"  -->
                 <?php Card::end(); ?>
             </div>
@@ -268,7 +277,7 @@ $this->title = 'Dashboard';
         </div>
 
         <h3>Card Product Example</h3>
-        <?= Yii::getAlias('@app').'\img\sidebar-1.jpg' ?>
+        <?= Yii::getAlias('@app') . '\img\sidebar-1.jpg' ?>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <?=
@@ -320,7 +329,7 @@ $this->title = 'Dashboard';
                 */
                 CardProduct::widget(
                     [
-                        "image" => Yii::getAlias('@web').'\img\sidebar-1.jpg',
+                        "image" => Yii::getAlias('@web') . '\img\sidebar-1.jpg',
                         "hiddenIcon" => 'send',
                         "hiddenText" => 'See Details',
                         "hiddenTooltip" => 'Lets check Details',
@@ -355,13 +364,13 @@ $this->title = 'Dashboard';
     <script>
         //SCRIPT FOR LINE AND BAR CHART
         var data = {
-        // A labels array that can contain any sort of values
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-        // Our series array that contains series objects or in this case series data arrays
-        series: [
-            [5, 2, 4, 2, 1],
-            [3, 2, 9, 5, 4],
-        ]
+            // A labels array that can contain any sort of values
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+            // Our series array that contains series objects or in this case series data arrays
+            series: [
+                [5, 2, 4, 2, 1],
+                [3, 2, 9, 5, 4],
+            ]
         };
         // We are setting a few options for our chart and override the defaults
         var options = {
@@ -384,7 +393,7 @@ $this->title = 'Dashboard';
                 // used for the labels on each axis. Here we are converting the
                 // values into million pound.
                 labelInterpolationFnc: function(value) {
-                return 'Rp ' + value + 'jt';
+                    return 'Rp ' + value + 'jt';
                 }
             }
         };
@@ -405,31 +414,31 @@ $this->title = 'Dashboard';
         };
 
         var options2 = {
-        labelInterpolationFnc: function(value) {
-            return value[0]
-        }
+            labelInterpolationFnc: function(value) {
+                return value[0]
+            }
         };
 
         var responsiveOptions = [
-        ['screen and (min-width: 640px)', {
-            chartPadding: 30,
-            labelOffset: 100,
-            labelDirection: 'explode',
-            labelInterpolationFnc: function(value) {
-            return value;
-            }
-        }],
-        ['screen and (min-width: 1024px)', {
-            labelOffset: 80,
-            chartPadding: 20
-        }]
+            ['screen and (min-width: 640px)', {
+                chartPadding: 30,
+                labelOffset: 100,
+                labelDirection: 'explode',
+                labelInterpolationFnc: function(value) {
+                    return value;
+                }
+            }],
+            ['screen and (min-width: 1024px)', {
+                labelOffset: 80,
+                chartPadding: 20
+            }]
         ];
 
         new Chartist.Pie('#herchart', data2, options2, responsiveOptions);
 
         new Chartist.Pie('#yourchart', {
             series: [20, 10, 30, 40]
-            }, {
+        }, {
             donut: true,
             donutWidth: 20,
             donutSolid: true,

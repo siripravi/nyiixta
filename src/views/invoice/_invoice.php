@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
@@ -60,7 +61,8 @@ use yii\helpers\Url;
 
 </div>
 <div class="form-inline">
-    <?php //$form->field($model, 'SHIP_DATE') ?>
+    <?php //$form->field($model, 'SHIP_DATE') 
+    ?>
     <?= $form->field($model, 'SHIP_NAME') ?>
     <?= $form->field($model, 'SHIP_ADD1') ?>
     <?= $form->field($model, 'SHIP_ADD2') ?>
@@ -131,7 +133,7 @@ use yii\helpers\Url;
         <tbody>
             <?php $model->itemCount = count($model->invoiceItems);
             $allTotal = 0;
-            foreach ($model->invoiceItems as $id => $item): ?>
+            foreach ($model->invoiceItems as $id => $item) : ?>
                 <?php
                 $item->curRow = $id + 1;
                 $item->rowTotal = $item->QUANTITY * $item->PRICE;

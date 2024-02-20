@@ -1,4 +1,5 @@
 <?php
+
 use kartik\editable\Editable;
 use yii\helpers\Url;
 
@@ -48,23 +49,25 @@ use yii\helpers\Html;
 					own text anytime.</p>
 				<a href="#" class="btn btn-primary">Go somewhere</a>
 			</div>
-			<div class="tab-pane fade" id="customer">				
+			<div class="tab-pane fade" id="customer">
 				<div class="object-form">
 					<div id="custContent">
 						<?php
-						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); ?>
-						<?= $this->render('_editcust', ['customer' => $customer,'stmt'=>$stmt]);
+						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); 
+						?>
+						<?= $this->render('_editcust', ['customer' => $customer, 'stmt' => $stmt]);
 						//\yii\widgets\Pjax::end();
 						?>
 					</div>
-				</div>				
+				</div>
 			</div>
 			<div class="tab-pane fade" id="delivery">
-			<div class="object-form">
+				<div class="object-form">
 					<div id="delvContent">
 						<?php
-						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); ?>
-						<?= $this->render('_editdelv', ['delivery' => $delivery,'stmt'=>$stmt]);
+						//\yii\widgets\Pjax::begin(['id' => 'pjax-container', 'enablePushState' => false]); 
+						?>
+						<?= $this->render('_editdelv', ['delivery' => $delivery, 'stmt' => $stmt]);
 						//\yii\widgets\Pjax::end();
 						?>
 					</div>
@@ -127,11 +130,9 @@ use yii\helpers\Html;
 					<?= $stmt->created_at; ?></b>
 				</span><br>
 				<div class="clearfix"></div>
-				<span class="pull-left"><b>Due Date</b></span><span class="pull-right"><input id="due_at"
-						class="form-control input-sm" name="due_at" type="text" value="07/11/2014"></span><br>
+				<span class="pull-left"><b>Due Date</b></span><span class="pull-right"><input id="due_at" class="form-control input-sm" name="due_at" type="text" value="07/11/2014"></span><br>
 				<div class="clearfix"></div>
-				<span class="pull-left"><b>Status</b></span><span class="pull-right"><select id="invoice_status_id"
-						class="form-control input-sm" name="invoice_status_id">
+				<span class="pull-left"><b>Status</b></span><span class="pull-right"><select id="invoice_status_id" class="form-control input-sm" name="invoice_status_id">
 						<option value="1" selected="selected">Draft</option>
 						<option value="2">Sent</option>
 						<option value="3">Paid</option>
@@ -144,6 +145,6 @@ use yii\helpers\Html;
 	</div>
 	<div class="panel-footer">
 
-		
+
 	</div>
 </div>

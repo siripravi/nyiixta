@@ -11,7 +11,7 @@ use yii\helpers\Html;
 -->
     <div class="logo">
         <a href="../vendor/deyraka-material/yii2-material-dashboard/assets/img/sidebar-1.jpg" class="simple-text logo-normal">
-            Material Dashboard 
+            Material Dashboard
         </a>
     </div>
     <div class="sidebar-wrapper">
@@ -22,8 +22,8 @@ use yii\helpers\Html;
                 // ['label' => 'Login', 'icon' => 'web', 'url' => ['site/login']],
                 Yii::$app->user->isGuest ? (
                     ['label' => 'Login', 'icon' => 'web', 'url' => ['/site/login']]
-                ) : ( ['label' => 'Logout - '. Yii::$app->user->identity->username, 'icon' => 'web', 'url' => ['/site/logout'], 'options' => ['data-method'=>'post']]
-                    ),
+                ) : (['label' => 'Logout - ' . Yii::$app->user->identity->username, 'icon' => 'web', 'url' => ['/site/logout'], 'options' => ['data-method' => 'post']]
+                ),
                 ['label' => 'Javascript', 'icon' => 'code', 'url' => ['/javascript']],
                 ['label' => 'Notifications', 'icon' => 'notifications', 'url' => ['/notifications']],
                 ['label' => 'Tabs', 'icon' => 'tab', 'url' => ['/tabs']],
