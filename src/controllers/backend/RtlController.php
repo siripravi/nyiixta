@@ -10,13 +10,13 @@
  * @since      1.0
  */
 
-namespace siripravi\nyiixta\controllers;
+namespace siripravi\nyiixta\controllers\backend;
 
 /**
- * Class TypographyController
+ * Class RtlController
  * @package siripravi\nyiixta\controllers
  */
-class TypographyController extends \yii\web\Controller
+class RtlController extends \yii\web\Controller
 {
 	/**
 	 * @param \yii\base\Action $action
@@ -37,6 +37,6 @@ class TypographyController extends \yii\web\Controller
 	 */
 	public function actionIndex()
 	{
-		return $this->render('index', []);
+		return $this->renderFile(\Yii::getAlias('@app/views/rtl/index.php'));
 	}
 }

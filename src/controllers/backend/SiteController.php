@@ -10,7 +10,7 @@
  * @since      1.0
  */
 
-namespace siripravi\nyiixta\controllers;
+namespace siripravi\nyiixta\controllers\backend;
 
 use  yii;
 use siripravi\nyiixta\models\UserForgotForm;

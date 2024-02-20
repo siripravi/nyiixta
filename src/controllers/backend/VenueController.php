@@ -1,18 +1,20 @@
 <?php
 
-namespace siripravi\nyiixta\controllers;
+namespace siripravi\nyiixta\controllers\backend;
 
 use Yii;
-use siripravi\nyiixta\models\Payments;
-use siripravi\nyiixta\models\PaymentsSearch;
+use siripravi\nyiixta\models\Venue;
+use siripravi\nyiixta\models\VenueSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\rest\ActiveController;
+use yii\db\Query;
 
 /**
- * PaymentsController implements the CRUD actions for Payments model.
+ * VenueController implements the CRUD actions for Venue model.
  */
-class PaymentsController extends Controller
+class VenueController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +29,12 @@ class PaymentsController extends Controller
     }
 
     /**
-     * Lists all Payments models.
+     * Lists all Venue models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new PaymentsSearch();
+        $searchModel = new VenueSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +44,7 @@ class PaymentsController extends Controller
     }
 
     /**
-     * Displays a single Payments model.
+     * Displays a single Venue model.
      * @param integer $id
      * @return mixed
      */
@@ -54,17 +56,16 @@ class PaymentsController extends Controller
     }
 
     /**
-     * Creates a new Payments model.
+     * Creates a new Venue model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Payments();
+        $model = new Venue();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'id' => $model->id]);
-            return $this->redirect(['invoice/update', 'id' => $model->st_id]);
+            return $this->redirect(['view', 'id' => $model->venue_id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -73,7 +74,7 @@ class PaymentsController extends Controller
     }
 
     /**
-     * Updates an existing Payments model.
+     * Updates an existing Venue model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -83,7 +84,7 @@ class PaymentsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ID]);
+            return $this->redirect(['view', 'id' => $model->venue_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -92,7 +93,7 @@ class PaymentsController extends Controller
     }
 
     /**
-     * Deletes an existing Payments model.
+     * Deletes an existing Venue model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -100,23 +101,41 @@ class PaymentsController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Payments model based on its primary key value.
+     * Finds the Venue model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Payments the loaded model
+     * @return Venue the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Payments::findOne($id)) !== null) {
+        if (($model = Venue::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionVenueList($q = null, $id = null)
+    {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $out = ['results' => ['id' => '', 'text' => '']];
+        if (!is_null($q)) {
+            $query = new Query;
+            $query->select('venue_id, ship_name AS text')
+                ->from('venue')
+                ->where(['like', 'ship_name', $q])
+                ->limit(20);
+            $command = $query->createCommand();
+            $data = $command->queryAll();
+            $out['results'] = array_values($data);
+        } elseif ($id > 0) {
+            $out['results'] = ['id' => $id, 'text' => Venue::find($id)->ship_name];
+        }
+        return $out;
     }
 }

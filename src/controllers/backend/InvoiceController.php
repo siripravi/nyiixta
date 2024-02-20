@@ -1,6 +1,6 @@
 <?php
 
-namespace siripravi\nyiixta\controllers;
+namespace siripravi\nyiixta\controllers\backend;
 
 use Yii;
 use siripravi\nyiixta\models\Statement;

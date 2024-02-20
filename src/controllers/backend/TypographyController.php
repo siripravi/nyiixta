@@ -10,13 +10,13 @@
  * @since      1.0
  */
 
-namespace siripravi\nyiixta\controllers;
+namespace siripravi\nyiixta\controllers\backend;
 
 /**
- * Class DashboardController
+ * Class TypographyController
  * @package siripravi\nyiixta\controllers
  */
-class DashboardController extends \yii\web\Controller
+class TypographyController extends \yii\web\Controller
 {
 	/**
 	 * @param \yii\base\Action $action
@@ -36,8 +36,7 @@ class DashboardController extends \yii\web\Controller
 	 * @return string
 	 */
 	public function actionIndex()
-	{  //echo "Please Wait..."; die;
-
+	{
 		return $this->render('index', []);
 	}
 }

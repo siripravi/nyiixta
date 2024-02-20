@@ -10,13 +10,13 @@
  * @since      1.0
  */
 
-namespace siripravi\nyiixta\controllers;
+namespace siripravi\nyiixta\controllers\backend;
 
 /**
- * Class IconsController
+ * Class NotificationsController
  * @package siripravi\nyiixta\controllers
  */
-class IconsController extends \yii\web\Controller
+class NotificationsController extends \yii\web\Controller
 {
 	/**
 	 * @param \yii\base\Action $action

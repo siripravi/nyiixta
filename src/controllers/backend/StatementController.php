@@ -1,6 +1,6 @@
 <?php
 
-namespace siripravi\nyiixta\controllers;
+namespace siripravi\nyiixta\controllers\backend;
 
 use siripravi\nyiixta\models\Statement;
 use siripravi\nyiixta\models\Invoice;

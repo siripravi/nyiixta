@@ -1,50 +1,58 @@
 <?php
 
-namespace siripravi\nyiixta\controllers;
-
+namespace siripravi\nyiixta\controllers\backend;
 use Yii;
-use siripravi\nyiixta\models\Venue;
-use siripravi\nyiixta\models\VenueSearch;
+use siripravi\slideradmin\models\Slider;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\rest\ActiveController;
-use yii\db\Query;
 
 /**
- * VenueController implements the CRUD actions for Venue model.
+ * SliderController implements the CRUD actions for Slider model.
+ * Slider contains several images.
  */
-class VenueController extends Controller
+class DefaultController extends Controller
 {
-    public function behaviors()
+    /**
+     * @inheritdoc
+     */
+  /*  public function behaviors()
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
-                    'delete' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
     }
+*/
+    public function actions()
+    {
+        return [
+         
+        ]; 
+    }
 
     /**
-     * Lists all Venue models.
+     * Lists all Slider models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new VenueSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Slider::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Venue model.
+     * Displays a single Slider model.
      * @param integer $id
      * @return mixed
      */
@@ -56,25 +64,28 @@ class VenueController extends Controller
     }
 
     /**
-     * Creates a new Venue model.
+     * Creates a new Slider model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Venue();
+        $model = new Slider();
+
+        $model->loadDefaultValues();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->venue_id]);
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Information added successfully'));
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'model' => $model, 'key'=>"",'imgCount'=>5
             ]);
         }
     }
 
     /**
-     * Updates an existing Venue model.
+     * Updates an existing Slider model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -84,16 +95,17 @@ class VenueController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->venue_id]);
+            Yii::$app->session->setFlash('success', Yii::t('app', 'Information has been saved successfully'));
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                'model' => $model,'key' =>$id, 'imgCount' => $model->image_count
             ]);
         }
     }
 
     /**
-     * Deletes an existing Venue model.
+     * Deletes an existing Slider model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -101,41 +113,24 @@ class VenueController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Venue model based on its primary key value.
+     * Finds the Slider model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Venue the loaded model
+     * @return Slider the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Venue::findOne($id)) !== null) {
+        if (($model = Slider::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
-    public function actionVenueList($q = null, $id = null)
-    {
-        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $out = ['results' => ['id' => '', 'text' => '']];
-        if (!is_null($q)) {
-            $query = new Query;
-            $query->select('venue_id, ship_name AS text')
-                ->from('venue')
-                ->where(['like', 'ship_name', $q])
-                ->limit(20);
-            $command = $query->createCommand();
-            $data = $command->queryAll();
-            $out['results'] = array_values($data);
-        } elseif ($id > 0) {
-            $out['results'] = ['id' => $id, 'text' => Venue::find($id)->ship_name];
-        }
-        return $out;
-    }
+    
 }
