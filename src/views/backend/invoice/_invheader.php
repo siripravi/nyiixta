@@ -42,7 +42,7 @@ use yii\helpers\Html;
 		<div class="tab-content">
 			<div class="tab-pane active" id="home">
 				<?php
-				app\components\AngularHelper::begin(
+				@siripravi\nyiixta\components\AngularHelper::begin(
 					[
 						'appName' => 'invApp',
 						'appFolder' => dirname(__FILE__) . '/../../' . 'libs/js/app4',
