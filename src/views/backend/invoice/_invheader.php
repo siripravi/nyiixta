@@ -45,11 +45,11 @@ use yii\helpers\Html;
 				@siripravi\nyiixta\components\AngularHelper::begin(
 					[
 						'appName' => 'invApp',
-						'appFolder' => dirname(__FILE__) . '/../../' . 'libs/js/app4',
+						'appFolder' => Yii::getAlias('@siripravi/nyiixta') . '/resources/app/',
 						'appScripts' => ['accounting.min.js', 'inv.js'],
 						'commonAppScripts' => [
-							dirname(__FILE__) . '/../../' . 'libs/js/common/config_httpProvider.js',
-							dirname(__FILE__) . '/../../' . 'libs/js/common/config_locationProvider.js',
+							Yii::getAlias('@siripravi/nyiixta') . '/resources/common/config_httpProvider.js',
+							Yii::getAlias('@siripravi/nyiixta') . '/resources/common/config_locationProvider.js',
 						],
 						'requiredModulesScriptNames' => array('route', 'sanitize'),
 						'concatenateAppScripts' => false,
@@ -60,7 +60,7 @@ use yii\helpers\Html;
 				<div ng-app="invApp" ng-controller="InvCtrl">
 					<?= $this->render('_lineitems', ['model' => $model, 'stmt' => $stmt, 'items' => $model->lineItems, 'angular' => $angular]); ?>
 				</div>
-				<?php app\components\AngularHelper::end(); ?>
+				<?php @siripravi\nyiixta\components\AngularHelper::end(); ?>
 			</div>
 			<div class="tab-pane" id="customer">
 				<div class="object-form">

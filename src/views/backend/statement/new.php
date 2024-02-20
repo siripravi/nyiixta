@@ -3,8 +3,8 @@
 use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Customer;
-use app\models\Venue;
+use siripravi\nyiixta\models\Customer;
+use siripravi\nyiixta\models\Venue;
 use yii\jui\DatePicker;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Modal;
@@ -13,7 +13,7 @@ use yii\jui\Dialog;
 
 /** 
  * @var yii\web\View $this
- * @var app\models\Invoice $model
+ * @var siripravi\nyiixta\models\Invoice $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

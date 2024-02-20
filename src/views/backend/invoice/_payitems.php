@@ -3,13 +3,13 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use app\models\PaymentsSearch;
+use siripravi\nyiixta\models\PaymentsSearch;
 use yii\data\ArrayDataProvider;
 
 //use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Customer;
-use app\models\Invoice;
+use siripravi\nyiixta\models\Customer;
+use siripravi\nyiixta\models\Invoice;
 use yii\jui\DatePicker;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Modal;
@@ -17,7 +17,7 @@ use bootui\select2\Select2;
 
 /**
  * @var yii\web\View $this
- * @var app\models\PaymentsSearch $searchModel
+ * @var siripravi\nyiixta\models\PaymentsSearch $searchModel
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 

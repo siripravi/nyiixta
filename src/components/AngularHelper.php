@@ -156,7 +156,8 @@ class AngularHelper extends Widget
 		// publish the vendor assets:
 		if ($this->includeAngular) {
 			//$dir = dirname(__FILE__) . DIRECTORY_SEPARATOR . '..'.DIRECTORY_SEPARATOR.'vendor' . DIRECTORY_SEPARATOR . self::ANGULARJS_FOLDER;
-			$dir = Yii::getAlias('@vendor') . DIRECTORY_SEPARATOR . self::ANGULARJS_FOLDER;
+			$dir = Yii::getAlias('@siripravi/nyiixta').DIRECTORY_SEPARATOR .'resources'.DIRECTORY_SEPARATOR.self::ANGULARJS_FOLDER;
+			
 			$this->_vendorAssets = $assetsManager->publish($dir);
 		}
 

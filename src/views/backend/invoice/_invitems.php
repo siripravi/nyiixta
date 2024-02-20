@@ -1,7 +1,7 @@
 <?php
 
 use yii\bootstrap\Tabs;
-use app\models\Payments;
+use siripravi\nyiixta\models\Payments;
 
 /*
  * To change this template, choose Tools | Templates

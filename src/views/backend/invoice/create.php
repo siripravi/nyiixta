@@ -4,8 +4,8 @@ use yii\bootstrap\Modal;
 use yii\bootstrap\ActiveForm;
 use bootui\select2\Select2;
 use yii\helpers\ArrayHelper;
-use app\models\Venue;
-use app\models\Customer;
+use siripravi\nyiixta\models\Venue;
+use siripravi\nyiixta\models\Customer;
 use yii\helpers\Html;
 
 ?>

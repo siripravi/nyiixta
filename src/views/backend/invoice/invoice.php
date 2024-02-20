@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use app\models\Venue;
+use siripravi\nyiixta\models\Venue;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Invoice $model
+ * @var siripravi\nyiixta\models\Invoice $model
  * @var yii\widgets\ActiveForm $form
  */
 ?>

@@ -6,13 +6,13 @@ use yii\helpers\Json;
 use yii\helpers\ArrayHelper;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Collapse;
-use app\models\InvoiceItems;
-use app\models\Statement;
-use app\models\Payments;
+use siripravi\nyiixta\models\InvoiceItems;
+use siripravi\nyiixta\models\Statement;
+use siripravi\nyiixta\models\Payments;
 
 /**
  * @var yii\web\View $this
- * @var app\models\InvoiceSearch $searchModel
+ * @var siripravi\nyiixta\models\InvoiceSearch $searchModel
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 

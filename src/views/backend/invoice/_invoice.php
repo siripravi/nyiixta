@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Customer;
+use siripravi\nyiixta\models\Customer;
 use yii\jui\DatePicker;
 use yii\bootstrap\ActiveForm;
 use yii\bootstrap\Modal;

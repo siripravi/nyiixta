@@ -6,7 +6,7 @@ use yii\widgets\Pjax;
 
 /**
  * @var yii\web\View $this
- * @var app\models\InvoiceSearch $searchModel
+ * @var siripravi\nyiixta\models\InvoiceSearch $searchModel
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 
@@ -31,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         'enablePushState' => true,
                     ]); ?>
                     <!--?= $this->render('_modal', [
-                                    'model' => new app\models\Invoice,
-                                    'stmt' => new app\models\Statement,
+                                    'model' => new siripravi\nyiixta\models\Invoice,
+                                    'stmt' => new siripravi\nyiixta\models\Statement,
                                     'title' => "Create Invoice",
                                     'label' => 'New'
                                 ]) ?-->

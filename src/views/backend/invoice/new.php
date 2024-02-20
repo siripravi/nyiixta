@@ -5,9 +5,9 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 //use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Customer;
-use app\models\Payments;
-use app\models\Venue;
+use siripravi\nyiixta\models\Customer;
+use siripravi\nyiixta\models\Payments;
+use siripravi\nyiixta\models\Venue;
 use kartik\date\DatePicker;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Modal;
@@ -19,7 +19,7 @@ use yii\web\JsExpression;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Invoice $model
+ * @var siripravi\nyiixta\models\Invoice $model
  */
 
 //$this->title = ' Invoice: ' . ' #' . $model->INVOICE_NO;

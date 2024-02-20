@@ -1,6 +1,6 @@
 <?php
 
-use app\models\InvoiceItems;
+use siripravi\nyiixta\models\InvoiceItems;
 
 use yii\helpers\Html;
 

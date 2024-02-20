@@ -4,9 +4,9 @@ use yii\bootstrap5\Accordion;
 use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Customer;
-use app\models\Payments;
-use app\models\Venue;
+use siripravi\nyiixta\models\Customer;
+use siripravi\nyiixta\models\Payments;
+use siripravi\nyiixta\models\Venue;
 use yii\jui\DatePicker;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Modal;
@@ -16,7 +16,7 @@ use yii\jui\Dialog;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Invoice $model
+ * @var siripravi\nyiixta\models\Invoice $model
  */
 
 //$this->title = ' Invoice: ' . ' #' . $model->INVOICE_NO;
@@ -26,7 +26,7 @@ use yii\jui\Dialog;
 
 //$this->context->layout = '@app/views/views/layouts/column2';
 
-$pk = $model->primaryKey;
+$pk = $stmt->primaryKey;
 ?>
 <div class="title-wrapper pt-30">
   <div class="row align-items-center">
@@ -68,8 +68,6 @@ $pk = $model->primaryKey;
     </div>
   </div>
 <?php endif; ?>
-
-
 
 <script>
   // Passing parameters to the script / controller without using placeholders:

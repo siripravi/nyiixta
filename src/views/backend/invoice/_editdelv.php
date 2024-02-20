@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
 use yii\widgets\Pjax;
-use app\models\Venue;
+use siripravi\nyiixta\models\Venue;
 use yii\web\JsExpression;
 
 ?>

@@ -4,7 +4,7 @@ use yii\bootstrap\Collapse;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Invoice $model
+ * @var siripravi\nyiixta\models\Invoice $model
  */
 
 $this->title = ' Invoice: ' . ' #' . $model->INVOICE_NO;

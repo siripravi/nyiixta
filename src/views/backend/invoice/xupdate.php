@@ -4,9 +4,9 @@ use yii\bootstrap5\Accordion;
 use yii\helpers\Html;
 //use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
-use app\models\Customer;
-use app\models\Payments;
-use app\models\Venue;
+use siripravi\nyiixta\models\Customer;
+use siripravi\nyiixta\models\Payments;
+use siripravi\nyiixta\models\Venue;
 use yii\jui\DatePicker;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Modal;
@@ -16,7 +16,7 @@ use yii\jui\Dialog;
 
 /**
  * @var yii\web\View $this
- * @var app\models\Invoice $model
+ * @var siripravi\nyiixta\models\Invoice $model
  */
 
 //$this->title = ' Invoice: ' . ' #' . $model->INVOICE_NO;
@@ -102,12 +102,12 @@ Modal::begin([
 <?php
 
 use yii\captcha\Captcha;
-use app\models\ContactForm;
+use siripravi\nyiixta\models\ContactForm;
 
 /**
  * @var yii\web\View $this
  * @var yii\widgets\ActiveForm $form
- * @var app\models\ContactForm $model
+ * @var siripravi\nyiixta\models\ContactForm $model
  */
 
 $contact = new ContactForm();
